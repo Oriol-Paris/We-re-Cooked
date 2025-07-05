@@ -42,6 +42,11 @@ public class PlayerController : MonoBehaviour
     private float forwardInput;
     private float sidewaysInput;
 
+    [Header("Camera")]
+    [SerializeField] private float sensitivity = 100f;
+    [SerializeField] private Transform playerCamera;
+    private float xRotation = 0f;
+
     [Header("Gravity")]
     [SerializeField] private float gravity = 9.81f;
     private float verticalVelocity;
@@ -58,7 +63,8 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-         
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // ---------------------------------------------- Enable ---------------------------------------------- \\
@@ -89,6 +95,7 @@ public class PlayerController : MonoBehaviour
     {
         InputManagement();
         Move();
+        Camera();
     }
 
     // ---------------------------------------------- Movement ---------------------------------------------- \\
@@ -97,6 +104,7 @@ public class PlayerController : MonoBehaviour
     {
         // Calculate Speed
         Vector3 inputDirection = new Vector3(sidewaysInput, 0, forwardInput).normalized;
+        inputDirection = transform.rotation * inputDirection;
 
         float speed;
         float acceleration;
@@ -206,7 +214,7 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        if (jumping) // Tab Jump
+        if (jumping)
         {
             jumpBufferCounter = jumpBufferTime;
             jumping = false;
@@ -223,7 +231,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnJumpStarted(InputAction.CallbackContext context)
     {
-        // Jump
         jumping = true;
     }
 
@@ -237,5 +244,19 @@ public class PlayerController : MonoBehaviour
         {
             coyoteTimeCounter -= Time.deltaTime;
         }
+    }
+
+    // ---------------------------------------------- Camera ---------------------------------------------- \\
+
+    private void Camera()
+    {
+        float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
+
+        xRotation -= mouseY;
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+
+        playerCamera.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        transform.Rotate(Vector3.up * mouseX);
     }
 }
