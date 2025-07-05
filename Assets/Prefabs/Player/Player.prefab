@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6192886218596255020}
   - component: {fileID: 4667836074146191767}
   - component: {fileID: 7731207224538729047}
+  - component: {fileID: 7893539016434260492}
   - component: {fileID: 5380731297215774140}
   m_Layer: 0
   m_Name: Player
@@ -141,9 +142,26 @@ MonoBehaviour:
   jumpHeight: 0.7
   coyoteTime: 0.2
   jumpBufferTime: 0.3
-  sensitivity: 500
   playerCamera: {fileID: 1856446924601429566}
   gravity: 9.81
+--- !u!114 &7893539016434260492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 399480950001947122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19bc50ba197d98840b89f339f9f4c804, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabDistance: 3
+  minGrabDistance: 1
+  maxGrabDistance: 10
+  scrollSpeed: 2
+  maxVelocity: 10
+  maxAngularVelocity: 20
 --- !u!114 &5380731297215774140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,6 +375,7 @@ GameObject:
   - component: {fileID: 1742642914004679784}
   - component: {fileID: 1198380411187669106}
   - component: {fileID: 1913061983711140472}
+  - component: {fileID: 2490795582092035200}
   m_Layer: 0
   m_Name: Camera Brain
   m_TagString: MainCamera
@@ -418,7 +437,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -514,6 +533,39 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!114 &2490795582092035200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2796331784389883501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a78da3f00f3328541b4526c0b0b5ec5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lineThickness: 1.42
+  lineIntensity: 0.5
+  fillAmount: 0.2
+  lineColor0: {r: 0.54926234, g: 1, b: 0.5330188, a: 1}
+  lineColor1: {r: 0, g: 1, b: 0, a: 1}
+  lineColor2: {r: 0, g: 0, b: 1, a: 1}
+  additiveRendering: 0
+  backfaceCulling: 1
+  fillColor: {r: 0, g: 0, b: 1, a: 1}
+  useFillColor: 0
+  cornerOutlines: 0
+  addLinesBetweenColors: 0
+  scaleWithScreenSize: 1
+  alphaCutoff: 0.5
+  flipY: 0
+  sourceCamera: {fileID: 4652338764102990101}
+  autoEnableOutlines: 1
+  outlineCamera: {fileID: 0}
+  outlineShaderMaterial: {fileID: 0}
+  renderTexture: {fileID: 0}
+  extraRenderTexture: {fileID: 0}
 --- !u!1 &7062038918134870356
 GameObject:
   m_ObjectHideFlags: 0
