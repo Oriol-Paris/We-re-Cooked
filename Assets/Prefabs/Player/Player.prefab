@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7731207224538729047}
   - component: {fileID: 7893539016434260492}
   - component: {fileID: 5380731297215774140}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,18 @@ MonoBehaviour:
   jumpHeight: 0.7
   coyoteTime: 0.2
   jumpBufferTime: 0.3
+  crouchSpeed: 3
+  crouchAcceleration: 20
+  crouchDeceleration: 20
+  crouchChangeDirectionDeceleration: 25
+  crouchHeight: 1
+  crouchYPosition: -0.5
+  usualHeight: 2
+  usualYPosition: 0
+  crouchingSpeed: 5
+  uncrouchSpeed: 5
   playerCamera: {fileID: 1856446924601429566}
+  head: {fileID: 3871774400756910415}
   gravity: 9.81
 --- !u!114 &7893539016434260492
 MonoBehaviour:
@@ -205,6 +216,7 @@ GameObject:
   - component: {fileID: 5107057747299353325}
   - component: {fileID: 2799991800895414636}
   - component: {fileID: 272871912452947249}
+  - component: {fileID: 6274549846070134210}
   m_Layer: 0
   m_Name: Camera CM
   m_TagString: Untagged
@@ -362,6 +374,23 @@ MonoBehaviour:
         DecelTime: 0
   PlayerIndex: -1
   AutoEnableInputs: 1
+--- !u!114 &6274549846070134210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751951691169457799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NoiseProfile: {fileID: 11400000, guid: 46965f9cbaf525742a6da4c2172a99cd, type: 2}
+  PivotOffset: {x: 0, y: 0, z: 0}
+  AmplitudeGain: 0.2
+  FrequencyGain: 0.3
+  m_NoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &2796331784389883501
 GameObject:
   m_ObjectHideFlags: 0
