@@ -49,9 +49,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float crouchDeceleration = 5f;
     [SerializeField] private float crouchChangeDirectionDeceleration = 5f;
     [SerializeField] private float crouchHeight = 1f;
-    [SerializeField] private float crouchYPosition = -0.5f;
     [SerializeField] private float usualHeight = 2f;
-    [SerializeField] private float usualYPosition = 0f;
     [SerializeField] private float crouchingSpeed = 5f;
     [SerializeField] private float uncrouchSpeed = 5f;
     private bool canGetUp = true;
