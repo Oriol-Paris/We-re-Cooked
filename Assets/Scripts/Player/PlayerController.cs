@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveDeceleration = 5f;
     private Vector3 lastDirection = Vector3.zero;
     [SerializeField] private float moveChangeDirectionDeceleration = 5f;
+    [SerializeField] private float movementVectorVelocity = 5f;
 
     [Header("Sprint Settings")]
     [SerializeField] private float sprintSpeed = 7f;
@@ -140,7 +141,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                lastDirection = inputDirection;
+                lastDirection = Vector3.MoveTowards(lastDirection, inputDirection, movementVectorVelocity * 1.5f * Time.deltaTime);
                 currentSpeed = Mathf.MoveTowards(currentSpeed, speed, acceleration * Time.deltaTime);
             }
         }
