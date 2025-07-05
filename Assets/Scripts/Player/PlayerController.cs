@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     private CharacterController controller;
     private InputSystem_Actions playerControls;
 
+    [Header("Layer")]
+    private int playerLayerMask;
+
     private enum state { IDLE, MOVING, SPRINTING, CROUCHING, AIR };
     [Header("State")]
     [SerializeField] private state currentState = state.IDLE;
@@ -39,12 +42,27 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpBufferTime = 0.5f;
     private float jumpBufferCounter;
 
+    [Header("Crouch Settings")]
+    [SerializeField] private float crouchSpeed = 5f;
+    private bool crouching = false;
+    [SerializeField] private float crouchAcceleration = 5f;
+    [SerializeField] private float crouchDeceleration = 5f;
+    [SerializeField] private float crouchChangeDirectionDeceleration = 5f;
+    [SerializeField] private float crouchHeight = 1f;
+    [SerializeField] private float crouchYPosition = -0.5f;
+    [SerializeField] private float usualHeight = 2f;
+    [SerializeField] private float usualYPosition = 0f;
+    [SerializeField] private float crouchingSpeed = 5f;
+    [SerializeField] private float uncrouchSpeed = 5f;
+    private bool canGetUp = true;
+
     [Header("Input")]
     private float forwardInput;
     private float sidewaysInput;
 
     [Header("Camera")]
     [SerializeField] private Transform playerCamera;
+    [SerializeField] private Transform head;
 
     [Header("Gravity")]
     [SerializeField] private float gravity = 9.81f;
@@ -58,6 +76,8 @@ public class PlayerController : MonoBehaviour
 
         playerControls = new InputSystem_Actions();
         playerControls.Player.Enable();
+
+        playerLayerMask = ~LayerMask.GetMask("Player");
     }
 
     private void Start()
@@ -76,6 +96,10 @@ public class PlayerController : MonoBehaviour
         // Sprint
         playerControls.Player.Sprint.started += OnSprintStarted;
         playerControls.Player.Sprint.canceled += OnSprintCancelled;
+
+        // Crouch
+        playerControls.Player.Crouch.started += OnCrouchStarted;
+        playerControls.Player.Crouch.canceled += OnCrouchCancelled;
     }
 
     private void OnDisable()
@@ -86,6 +110,10 @@ public class PlayerController : MonoBehaviour
         // Sprint
         playerControls.Player.Sprint.started -= OnSprintStarted;
         playerControls.Player.Sprint.canceled -= OnSprintCancelled;
+
+        // Crouch
+        playerControls.Player.Crouch.started -= OnCrouchStarted;
+        playerControls.Player.Crouch.canceled -= OnCrouchCancelled;
     }
 
     // ---------------------------------------------- Updates ---------------------------------------------- \\
@@ -108,13 +136,22 @@ public class PlayerController : MonoBehaviour
         float acceleration;
         float deceleration;
         float changeDirectionDeceleration;
-        
-        if (sprinting && currentSpeed > 0)
+        if (currentState == state.CROUCHING) {
+            if (!crouching || sprinting) { canGetUp = CanGetUp(); } }
+
+        if (sprinting && currentSpeed > 0 && canGetUp)
         {
             speed = sprintSpeed;
             acceleration = sprintAcceleration;
             deceleration = sprintDeceleration;
             changeDirectionDeceleration = sprintChangeDirectionDeceleration;
+        }
+        else if (crouching || !canGetUp)
+        {
+            speed = crouchSpeed;
+            acceleration = crouchAcceleration;
+            deceleration = crouchDeceleration;
+            changeDirectionDeceleration = crouchChangeDirectionDeceleration;
         }
         else
         {
@@ -162,18 +199,24 @@ public class PlayerController : MonoBehaviour
         {
             if (currentSpeed > 0)
             {
-                if (sprinting) { currentState = state.SPRINTING; }
+                if (sprinting && canGetUp) { currentState = state.SPRINTING; }
+                else if (crouching || !canGetUp) { currentState = state.CROUCHING; }
                 else { currentState = state.MOVING; }
             }
             else
             {
-                currentState = state.IDLE;
+                if (crouching || !canGetUp) { currentState = state.CROUCHING; }
+                else { currentState = state.IDLE; }
             }
         }
         else
         {
             currentState = state.AIR;
         }
+
+        // Crouch
+        if (currentState == state.CROUCHING) { Crouch(); }
+        else { Uncrouch(); }
     }
 
     private float VerticalVelocity()
@@ -242,5 +285,38 @@ public class PlayerController : MonoBehaviour
         {
             coyoteTimeCounter -= Time.deltaTime;
         }
+    }
+
+    // ---------------------------------------------- Crouch ---------------------------------------------- \\
+
+    private void Crouch()
+    {
+        controller.height = Mathf.MoveTowards(controller.height, crouchHeight, crouchingSpeed * 1.5f * Time.deltaTime);
+        controller.center = new Vector3(0, controller.height / 2f, 0);
+        head.localPosition = new Vector3(0, controller.height / 2f + 0.7f, 0);
+    }
+
+    private void Uncrouch()
+    {
+        controller.height = Mathf.MoveTowards(controller.height, usualHeight, uncrouchSpeed * 1.5f * Time.deltaTime);
+        controller.center = new Vector3(0, controller.height / 2f, 0);
+        head.localPosition = new Vector3(0, controller.height / 2f + 0.7f, 0);
+    }
+
+    private bool CanGetUp()
+    {
+        RaycastHit hit;
+        if (!Physics.Raycast(transform.position, Vector3.up, out hit, 2.0f, playerLayerMask)) { return true; }
+        else { return false; }
+    }
+
+    private void OnCrouchStarted(InputAction.CallbackContext context)
+    {
+        crouching = true;
+    }
+
+    private void OnCrouchCancelled(InputAction.CallbackContext context)
+    {
+        crouching = false;
     }
 }
