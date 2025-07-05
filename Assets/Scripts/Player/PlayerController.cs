@@ -44,9 +44,7 @@ public class PlayerController : MonoBehaviour
     private float sidewaysInput;
 
     [Header("Camera")]
-    [SerializeField] private float sensitivity = 100f;
     [SerializeField] private Transform playerCamera;
-    private float xRotation = 0f;
 
     [Header("Gravity")]
     [SerializeField] private float gravity = 9.81f;
@@ -96,7 +94,6 @@ public class PlayerController : MonoBehaviour
     {
         InputManagement();
         Move();
-        Camera();
     }
 
     // ---------------------------------------------- Movement ---------------------------------------------- \\
@@ -105,7 +102,7 @@ public class PlayerController : MonoBehaviour
     {
         // Calculate Speed
         Vector3 inputDirection = new Vector3(sidewaysInput, 0, forwardInput).normalized;
-        inputDirection = transform.rotation * inputDirection;
+        inputDirection = playerCamera.transform.rotation * inputDirection;
 
         float speed;
         float acceleration;
@@ -245,19 +242,5 @@ public class PlayerController : MonoBehaviour
         {
             coyoteTimeCounter -= Time.deltaTime;
         }
-    }
-
-    // ---------------------------------------------- Camera ---------------------------------------------- \\
-
-    private void Camera()
-    {
-        float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
-
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-
-        playerCamera.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        transform.Rotate(Vector3.up * mouseX);
     }
 }
