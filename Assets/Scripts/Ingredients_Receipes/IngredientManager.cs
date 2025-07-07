@@ -71,10 +71,10 @@ public class IngredientManager : MonoBehaviour {
     }
 
     public IngredientType GetRandomType() {
-        return (IngredientType)UnityEngine.Random.Range(0, (int)Enum.GetValues(typeof(IngredientType)).Cast<IngredientType>().Max());
+        return (IngredientType)UnityEngine.Random.Range(0, (int)Enum.GetValues(typeof(IngredientType)).Cast<IngredientType>().Max() + 1);
     }
     public IngredientColor GetRandomColor() {
-        return (IngredientColor)UnityEngine.Random.Range(0, (int)Enum.GetValues(typeof(IngredientColor)).Cast<IngredientColor>().Max());
+        return (IngredientColor)UnityEngine.Random.Range(0, (int)Enum.GetValues(typeof(IngredientColor)).Cast<IngredientColor>().Max() + 1);
     }
 
 }
