@@ -70,6 +70,9 @@ public class IngredientManager : MonoBehaviour {
         return ingredientColDic[index];
     }
 
+    public IngredientType GetRandomType() {
+        return (IngredientType)UnityEngine.Random.Range(0, (int)Enum.GetValues(typeof(IngredientType)).Cast<IngredientType>().Max());
+    }
     public IngredientColor GetRandomColor() {
         return (IngredientColor)UnityEngine.Random.Range(0, (int)Enum.GetValues(typeof(IngredientColor)).Cast<IngredientColor>().Max());
     }

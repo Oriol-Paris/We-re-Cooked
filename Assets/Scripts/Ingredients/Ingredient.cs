@@ -24,6 +24,10 @@ public class Ingredient : MonoBehaviour {
         ingredientTypes = new List<IngredientType>();
         ingredientColors = new List<IngredientColor>();
 
+        for (int i = 0; i < ingredientTypes.Count; i++) {
+            ingredientTypes.Add(IngredientManager.instance.GetRandomType());
+        }
+
         for (int i = 0; i < maxColors; i++) {//randomColors
             ingredientColors.Add(IngredientManager.instance.GetRandomColor());
             for (int j = 0; j < meshRendL[i].meshR.Count; j++) {
