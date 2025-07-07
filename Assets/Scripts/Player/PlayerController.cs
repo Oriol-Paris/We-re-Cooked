@@ -253,7 +253,7 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        if (jumping)
+        /*if (jumping)
         {
             jumpBufferCounter = jumpBufferTime;
             jumping = false;
@@ -264,7 +264,7 @@ public class PlayerController : MonoBehaviour
             verticalVelocity = Mathf.Sqrt(jumpHeight * gravity * 2);
 
             coyoteTimeCounter = 0f;
-        }
+        }*/
 
     }
 
