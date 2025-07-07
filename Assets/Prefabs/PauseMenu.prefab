@@ -525,7 +525,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e079435df70d5514caab484971d50ef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneTutoName: DaniNTestScene
   sceneName: DaniNTestScene
 --- !u!1 &1350763742436547042
 GameObject:
