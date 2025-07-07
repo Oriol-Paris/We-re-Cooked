@@ -31,6 +31,8 @@ public class IngredientManager : MonoBehaviour {
     public List<GameObject> currIngredient;//ingredientes en escena
 
     public Dictionary<int, Color> ingredientColDic;
+    public Dictionary<int, Sprite> ingredientTypeSpriteDic;
+    
 
     void Awake() {
         if (instance == null) {
@@ -66,8 +68,8 @@ public class IngredientManager : MonoBehaviour {
         return ingredientL[index];
     }
 
-    public Color GetColorByIndex(int index) {
-        return ingredientColDic[index];
+    public Sprite GetTypeSpriteByIndex(int index) {
+        return ingredientTypeSpriteDic[index];
     }
 
     public IngredientType GetRandomType() {
@@ -75,6 +77,10 @@ public class IngredientManager : MonoBehaviour {
     }
     public IngredientColor GetRandomColor() {
         return (IngredientColor)UnityEngine.Random.Range(0, (int)Enum.GetValues(typeof(IngredientColor)).Cast<IngredientColor>().Max() + 1);
+    }
+
+    public Color GetColorByIndex(int index) {
+        return ingredientColDic[index];
     }
 
 }
