@@ -18,8 +18,26 @@ public class Receipe {
 }
 
 public class ReceipeGenerator : MonoBehaviour {
+    public static ReceipeGenerator instance;
+
+    public Dictionary<int, Sprite> ingredientTreatSpriteDic;
+
+
+    void Awake() {
+        if (instance == null) {
+            instance = this;
+        } else {
+            Destroy(this);
+            return;
+        }
+
+        //SPRITES
+    }
+
     public Receipe GenRandomReceipe(int maxTypes, int maxColors) {
         Receipe receipe = new Receipe();
+        receipe.ingredientTypes = new List<IngredientType>();
+        receipe.ingredientColors = new List<IngredientColor>();
 
         for (int i = 0; i < maxTypes; i++) {
             receipe.ingredientTypes.Add(IngredientManager.instance.GetRandomType());
@@ -36,6 +54,10 @@ public class ReceipeGenerator : MonoBehaviour {
 
     public ReceipeTreatement GetRandomTreat() {
         return (ReceipeTreatement)UnityEngine.Random.Range(0, (int)Enum.GetValues(typeof(ReceipeTreatement)).Cast<ReceipeTreatement>().Max());
+    }
+
+    public Sprite GetTreatSpriteByIndex(int index) {
+        return ingredientTreatSpriteDic[index];
     }
 
 }
