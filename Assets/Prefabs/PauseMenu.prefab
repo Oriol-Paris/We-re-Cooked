@@ -679,7 +679,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 5677608373228044950}
+  m_TargetGraphic: {fileID: 6218539671361114427}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -1791,7 +1791,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 5677608373228044950}
+  m_TargetGraphic: {fileID: 4786630517823056353}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -2095,7 +2095,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4280859903
-  m_fontColor: {r: 1, g: 0.7372549, b: 0.15686275, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2667,7 +2667,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4280859903
-  m_fontColor: {r: 1, g: 0.7372549, b: 0.15686275, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2845,7 +2845,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 5677608373228044950}
+  m_TargetGraphic: {fileID: 6908969696973826657}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -3409,7 +3409,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4280859903
-  m_fontColor: {r: 1, g: 0.7372549, b: 0.15686275, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3620,7 +3620,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4280859903
-  m_fontColor: {r: 1, g: 0.7372549, b: 0.15686275, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4173,7 +4173,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 5677608373228044950}
+  m_TargetGraphic: {fileID: 4657774568278776057}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
