@@ -29,6 +29,14 @@ public class PauseMenu : MonoBehaviour {
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Open();
+        }
+    }
+
     void Start() {
         //inputs = GameObject.Find("Player").GetComponent<StarterAssetsInputs>();
         //fpc = GameObject.Find("Player").GetComponent<FirstPersonController>();
@@ -39,43 +47,42 @@ public class PauseMenu : MonoBehaviour {
         menuObj.SetActive(false);
         optionsMenu.SetActive(false);
         buttons.SetActive(true);
-        DontDestroyOnLoad(gameObject);
         //playerRotSpeed = fpc.RotationSpeed;
-
-        //if (SceneChecker.instance != null)
-        //    SceneChecker.instance.SceneSwapped += UpdateRefs;
     }
     void OnDisable() {
         //if (inputs != null)
         //    inputs.Exit -= Open;
-        //if (SceneChecker.instance != null)
-        //    SceneChecker.instance.SceneSwapped -= UpdateRefs;
     }
 
     public void UpdateRefs() {
-        //if (inputs != null)
-        //    inputs.Exit -= Open;
+        /*if (inputs != null)
+            inputs.Exit -= Open;
 
-        //if (SceneChecker.instance.actualSceneIndex == 0) {
-        //    Cursor.visible = true;
-        //    Cursor.lockState = CursorLockMode.None;
-        //} else {
-        //    if (GameObject.Find("Player")) {
-        //        inputs = GameObject.Find("Player").GetComponent<StarterAssetsInputs>();
-        //        fpc = GameObject.Find("Player").GetComponent<FirstPersonController>();
-        //    }
-        //    if (GameObject.Find("Inventory"))
-        //        invInteract = GameObject.Find("Inventory").GetComponent<InventoryInteract>();
+        if (SceneChecker.instance.actualSceneIndex == 0)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
+            if (GameObject.Find("Player"))
+            {
+                inputs = GameObject.Find("Player").GetComponent<StarterAssetsInputs>();
+                fpc = GameObject.Find("Player").GetComponent<FirstPersonController>();
+            }
+            if (GameObject.Find("Inventory"))
+                invInteract = GameObject.Find("Inventory").GetComponent<InventoryInteract>();
 
-        //    if (!GameObject.Find("Player")) {
-        //        Cursor.visible = true;
-        //        Cursor.lockState = CursorLockMode.None;
-        //        return;
-        //    }
+            if (!GameObject.Find("Player"))
+            {
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+                return;
+            }
 
-        //    if (inputs != null)
-        //        inputs.Exit += Open;
-        //}
+            if (inputs != null)
+                inputs.Exit += Open;
+        }*/
 
         optionsMenu.SetActive(false);
         buttons.SetActive(true);
@@ -97,21 +104,21 @@ public class PauseMenu : MonoBehaviour {
             OpenOptions(!optionsOpen);
 
         //Behavior when menu is active or inactive
-        if (!menuObj.activeSelf)
+        /*if (!menuObj.activeSelf)
         {
-            //fpc.canMove = true;
-            //fpc.SetCursorLock(false);
-            //fpc.RotationSpeed = playerRotSpeed;
+            fpc.canMove = true;
+            fpc.SetCursorLock(false);
+            fpc.RotationSpeed = playerRotSpeed;
         }
         else
         {
-            //fpc.canMove = false;
-            //fpc.SetCursorLock(true);
-            //fpc.RotationSpeed = 0;
+            fpc.canMove = false;
+            fpc.SetCursorLock(true);
+            fpc.RotationSpeed = 0;
 
             if (main != null)
                 main.Select();
-        }
+        }*/
         
         Time.timeScale = menuObj.activeSelf ? 0 : 1;
     }
