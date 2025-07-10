@@ -5,6 +5,7 @@ using UnityEngine;
 
 
 public enum ReceipeTreatement {
+    NONE,
     HEAT,
     DRY,
     FRY
@@ -20,6 +21,7 @@ public class Receipe {
 public class ReceipeGenerator : MonoBehaviour {
     public static ReceipeGenerator instance;
 
+    public List<Sprite> ingTreatS;
     public Dictionary<int, Sprite> ingredientTreatSpriteDic;
 
 
@@ -31,7 +33,10 @@ public class ReceipeGenerator : MonoBehaviour {
             return;
         }
 
-        //SPRITES
+        ingredientTreatSpriteDic = new Dictionary<int, Sprite>();
+        for (int i = 0; i < ingTreatS.Count; i++) {
+            ingredientTreatSpriteDic.Add(i, ingTreatS[i]);
+        }
     }
 
     public Receipe GenRandomReceipe(int maxTypes, int maxColors) {
@@ -47,13 +52,13 @@ public class ReceipeGenerator : MonoBehaviour {
             receipe.ingredientColors.Add(IngredientManager.instance.GetRandomColor());
         }
 
-        receipe.ingredientTreat = GetRandomTreat();
+        receipe.ingredientTreat = GetRandomTreatForCook();
 
         return receipe;
     }
 
-    public ReceipeTreatement GetRandomTreat() {
-        return (ReceipeTreatement)UnityEngine.Random.Range(0, (int)Enum.GetValues(typeof(ReceipeTreatement)).Cast<ReceipeTreatement>().Max());
+    public ReceipeTreatement GetRandomTreatForCook() {
+        return (ReceipeTreatement)UnityEngine.Random.Range(1, (int)Enum.GetValues(typeof(ReceipeTreatement)).Cast<ReceipeTreatement>().Max());
     }
 
     public Sprite GetTreatSpriteByIndex(int index) {

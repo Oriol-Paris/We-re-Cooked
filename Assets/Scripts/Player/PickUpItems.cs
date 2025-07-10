@@ -14,6 +14,9 @@ public class ObjectGrabber : MonoBehaviour
     private Rigidbody grabbedRb;
     private SpringJoint joint;
 
+    public LayerMask lm;
+
+
     void Start()
     {
         grabAnchor = new GameObject("GrabAnchor").transform;
@@ -42,7 +45,7 @@ public class ObjectGrabber : MonoBehaviour
     void TryGrab()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hit, maxGrabDistance))
+        if (Physics.Raycast(ray, out RaycastHit hit, maxGrabDistance, lm))
         {
             if (hit.collider.CompareTag("Grabbable"))
             {

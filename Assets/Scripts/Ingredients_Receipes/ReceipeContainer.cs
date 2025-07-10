@@ -1,8 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
-using static Unity.Burst.Intrinsics.X86.Avx;
 
 
 public class ReceipeContainer : MonoBehaviour {
@@ -38,7 +35,10 @@ public class ReceipeContainer : MonoBehaviour {
             tmp.transform.localEulerAngles = Vector3.zero;
             tmp.transform.localScale = Vector3.one;
             tmp.GetComponent<TextMeshProUGUI>().text = "Type";
-            //tmp.transform.GetChild(0).GetComponent<Image>().sprite = ;
+            tmp.transform.GetChild(0).GetComponent<UnityEngine.UI.Image>().sprite =
+                IngredientManager.instance.GetTypeSpriteByIndex((int)currentR.ingredientTypes[i]);
+            tmp.transform.GetChild(0).GetComponent<UnityEngine.UI.Image>().color =
+                IngredientManager.instance.GetTypeColorByIndex((int)currentR.ingredientTypes[i]);
         }
 
         for (int i = 0; i < currentR.ingredientColors.Count; i++) {
@@ -59,7 +59,8 @@ public class ReceipeContainer : MonoBehaviour {
         tmpT.transform.localEulerAngles = Vector3.zero;
         tmpT.transform.localScale = Vector3.one;
         tmpT.GetComponent<TextMeshProUGUI>().text = "Treatement";
-        //tmp.transform.GetChild(0).GetComponent<Image>().sprite = ;
+        tmpT.transform.GetChild(0).GetComponent<UnityEngine.UI.Image>().sprite =
+            ReceipeGenerator.instance.GetTreatSpriteByIndex((int)currentR.ingredientTreat);
 
     }
 

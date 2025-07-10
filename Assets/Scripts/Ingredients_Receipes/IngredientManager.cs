@@ -30,7 +30,10 @@ public class IngredientManager : MonoBehaviour {
 
     public List<GameObject> currIngredient;//ingredientes en escena
 
+    public Dictionary<int, Color> ingredientTypeColDic;
     public Dictionary<int, Color> ingredientColDic;
+
+    public List<Sprite> ingTypeS;
     public Dictionary<int, Sprite> ingredientTypeSpriteDic;
     
 
@@ -52,6 +55,19 @@ public class IngredientManager : MonoBehaviour {
         ingredientColDic.Add((int)IngredientColor.MAGENTA, Color.magenta);
         ingredientColDic.Add((int)IngredientColor.GRAY, Color.gray);
         ingredientColDic.Add((int)IngredientColor.BLACK, Color.black);
+
+        ingredientTypeColDic = new Dictionary<int, Color>();
+        ingredientTypeColDic.Add((int)IngredientType.ORGANIC, new Color((float)255 / 255, (float)93 / 255, (float)252 / 255));
+        ingredientTypeColDic.Add((int)IngredientType.METALLIC, Color.gray);
+        ingredientTypeColDic.Add((int)IngredientType.FIBER, new Color((float)125 / 255, (float)78 / 255, (float)25 / 255));
+        ingredientTypeColDic.Add((int)IngredientType.SWEET, new Color((float)255 / 255, (float)191 / 255, (float)255 / 255));
+        ingredientTypeColDic.Add((int)IngredientType.SALTY, Color.white);
+
+        ingredientTypeSpriteDic = new Dictionary<int, Sprite>();
+        for (int i = 0; i < ingTypeS.Count; i++) {
+            ingredientTypeSpriteDic.Add(i, ingTypeS[i]);
+        }
+
     }
 
 
@@ -79,6 +95,9 @@ public class IngredientManager : MonoBehaviour {
         return (IngredientColor)UnityEngine.Random.Range(0, (int)Enum.GetValues(typeof(IngredientColor)).Cast<IngredientColor>().Max() + 1);
     }
 
+    public Color GetTypeColorByIndex(int index) {
+        return ingredientTypeColDic[index];
+    }
     public Color GetColorByIndex(int index) {
         return ingredientColDic[index];
     }
