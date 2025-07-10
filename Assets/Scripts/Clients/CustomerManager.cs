@@ -11,6 +11,7 @@ public class CustomerManager : MonoBehaviour
     public float spawnInterval = 10f;
     public float customerWaitTime = 30f;
 
+    [SerializeField]
     private List<Customer> customers = new List<Customer>();
     private float spawnTimer;
 
@@ -42,16 +43,11 @@ public class CustomerManager : MonoBehaviour
 
     void SpawnCustomer()
     {
-        if (ReceipeGenerator.instance != null)
-        {
-            Receipe newReceipe = ReceipeGenerator.instance.GenRandomReceipe(2, 2);
-            Customer newCustomer = new Customer(newReceipe, customerWaitTime);
-            customers.Add(newCustomer);
-        }
-        else
-        {
-            Debug.Log("El generador es null wtf");
-        }
+
+        Receipe newReceipe = ReceipeGenerator.instance.GenRandomReceipe(4, 3);
+        Customer newCustomer = new Customer(newReceipe, customerWaitTime);
+        customers.Add(newCustomer);
+
 
         if (customerPrefab != null && spawnPoint != null)
         {
