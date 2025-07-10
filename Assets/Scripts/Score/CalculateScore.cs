@@ -11,15 +11,21 @@ public class CalculateScore : MonoBehaviour
     public Receipe r;
     public ReceipeContainer recipe;
 
+    public List<Ingredient> ingredients;
+
+    public ScoreBar score;
+
     [Header("Points x Aspects")]
     public int typePt;
     public int colorPt;
     public int objMultiplier;
 
     [Header("Scores")]
+    private int maxScore;
     public int recipeScore;
     public int ingScore;
 
+    [Header("Ingredients In Plate")]
     private int maxIngAmount;
     private int currIngAmount;
 
@@ -28,17 +34,12 @@ public class CalculateScore : MonoBehaviour
     private void Start()
     {
         recipieReady = false;
-        maxIngAmount = 3;
+        //maxIngAmount = 3;
 
-        r = recipe.currentR;
-
-        if (r.ingredientTypes.Count == 0 && r.ingredientColors.Count == 0)
-            StartCoroutine(UpdateRecipie());
-        else
-            r = recipe.currentR;
+        //r = recipe.currentR;
     }
 
-    IEnumerator UpdateRecipie()
+    /*IEnumerator UpdateRecipie()
     {
         yield return null;
         r = recipe.currentR;
@@ -46,28 +47,40 @@ public class CalculateScore : MonoBehaviour
             StartCoroutine(UpdateRecipie());
         else
             StopCoroutine(UpdateRecipie());
-    }
+    }*/
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Ing Detected");
-        ingScore = 0;
-
         var ing = other.GetComponent<Ingredient>();
-        if (ing == null) return;
+        if (ing == null || recipieReady)
+            return;
+        else
+        {
+            //Add the ingredient to the plate and check if the plate is full
+            ingredients.Add(ing);
+            currIngAmount++;
+            if (currIngAmount >= maxIngAmount)
+                recipieReady = true;
+        }
+    }
 
-        CheckIngredientTypes(ing);
-        CheckIngredientColors(ing);
-
-        if (currIngAmount < maxIngAmount)
-            Calculate();
+    public void CompareIngredientVsRecipe()
+    {
+        CalculateMaxScore();
+        foreach (var ing in ingredients)
+        {
+            ingScore = 0;
+            CheckIngredientTypes(ing);
+            CheckIngredientColors(ing);
+            if (currIngAmount < maxIngAmount)
+                Calculate();
+        }
     }
 
     void CheckIngredientTypes(Ingredient ing)
     {
         foreach (var t in ing.ingredientTypes)
         {
-            Debug.Log("ing type: " + t.ToString());
             if (recipe.currentR.ingredientTypes.Contains(t))
                 ingScore += typePt;
             else
@@ -79,7 +92,6 @@ public class CalculateScore : MonoBehaviour
     {
         foreach (var c in ing.ingredientColors)
         {
-            Debug.Log("ing color: " + c.ToString());
             if (recipe.currentR.ingredientColors.Contains(c))
                 ingScore += colorPt;
             else
@@ -87,15 +99,20 @@ public class CalculateScore : MonoBehaviour
         }
     }
 
+    //Calculate the points of the plate
     void Calculate()
     {
-        Debug.Log("ing score: " + ingScore);
-        ingScore *= objMultiplier;
-        Debug.Log("ing score: " + ingScore);
+        //ingScore *= objMultiplier;
         recipeScore += ingScore;
-        currIngAmount++;
-        if (currIngAmount == maxIngAmount)
-            recipieReady = true;
+
+        score.UpdateBar(recipeScore, maxScore);
+    }
+
+    void CalculateMaxScore() //Case all ingredients are perfect
+    {
+        maxScore = r.ingredientTypes.Count * typePt + //pts for matching type
+            r.ingredientColors.Count * colorPt + //pts for matching colors
+            ingredients.Count; //pts for treatment
     }
 
     public bool RecipieReady() { return recipieReady; }
@@ -103,4 +120,6 @@ public class CalculateScore : MonoBehaviour
     public void SetMaxIngAmount(int maxIngAmount) { this.maxIngAmount = maxIngAmount; }
 
     public int GetRecipieScore() { return recipeScore; }
+
+    public void GetCurrentRecipie(Receipe r) { this.r = r; }
 }
