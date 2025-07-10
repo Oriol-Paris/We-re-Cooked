@@ -32,6 +32,8 @@ public class IngredientManager : MonoBehaviour {
 
     public Dictionary<int, Color> ingredientTypeColDic;
     public Dictionary<int, Color> ingredientColDic;
+
+    public List<Sprite> ingTypeS;
     public Dictionary<int, Sprite> ingredientTypeSpriteDic;
     
 
@@ -60,6 +62,11 @@ public class IngredientManager : MonoBehaviour {
         ingredientTypeColDic.Add((int)IngredientType.FIBER, new Color((float)125 / 255, (float)78 / 255, (float)25 / 255));
         ingredientTypeColDic.Add((int)IngredientType.SWEET, new Color((float)255 / 255, (float)191 / 255, (float)255 / 255));
         ingredientTypeColDic.Add((int)IngredientType.SALTY, Color.white);
+
+        ingredientTypeSpriteDic = new Dictionary<int, Sprite>();
+        for (int i = 0; i < ingTypeS.Count; i++) {
+            ingredientTypeSpriteDic.Add(i, ingTypeS[i]);
+        }
 
     }
 

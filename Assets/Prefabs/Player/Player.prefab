@@ -146,9 +146,7 @@ MonoBehaviour:
   crouchDeceleration: 20
   crouchChangeDirectionDeceleration: 25
   crouchHeight: 1
-  crouchYPosition: -0.5
   usualHeight: 2
-  usualYPosition: 0
   crouchingSpeed: 5
   uncrouchSpeed: 5
   playerCamera: {fileID: 1856446924601429566}
@@ -172,6 +170,9 @@ MonoBehaviour:
   scrollSpeed: 2
   maxVelocity: 10
   maxAngularVelocity: 15
+  lm:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!1 &1751951691169457799
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,6 +4,12 @@ using UnityEngine;
 
 
 [Serializable]
+public class IngredientSerializable {
+    public List<IngredientType> ingredientTypes;
+    public List<IngredientColor> ingredientColors;
+}
+
+[Serializable]
 public class IngredientMeshes {
     public List<MeshRenderer> meshR;
     public List<Outline> outlines;
@@ -46,6 +52,20 @@ public class Ingredient : MonoBehaviour {
             }
         }
         currTypeCol = IngredientManager.instance.GetTypeColorByIndex((int)ingredientTypes[0]);
+
+        if (!IngredientManager.instance.currIngredient.Contains(gameObject))
+            IngredientManager.instance.currIngredient.Add(gameObject);
+    }
+
+    void OnEnable() {
+        if (IngredientManager.instance != null)
+            if (!IngredientManager.instance.currIngredient.Contains(gameObject))
+                IngredientManager.instance.currIngredient.Add(gameObject);
+    }
+
+    void OnDisable() {
+        if (IngredientManager.instance.currIngredient.Contains(gameObject))
+            IngredientManager.instance.currIngredient.Remove(gameObject);
     }
 
     void FixedUpdate() {
@@ -70,6 +90,21 @@ public class Ingredient : MonoBehaviour {
 
     public List<IngredientColor> GetIngredientColors() {
         return ingredientColors;
+    }
+
+    public IngredientSerializable GetNewIngredientFromThis() {
+        IngredientSerializable newI = new IngredientSerializable();
+
+        newI.ingredientTypes = new List<IngredientType>();
+        for (int i = 0; i < ingredientTypes.Count; i++) {
+            newI.ingredientTypes.Add(ingredientTypes[i]);
+        }
+        newI.ingredientColors = new List<IngredientColor>();
+        for (int i = 0; i < ingredientColors.Count; i++) {//randomColors
+            newI.ingredientColors.Add(ingredientColors[i]);
+        }
+
+        return newI;
     }
 
 }
