@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [Serializable]
-public class Customer
+public class Customer : MonoBehaviour
 {
     public Receipe requestedReceipe;
     public float waitTime;

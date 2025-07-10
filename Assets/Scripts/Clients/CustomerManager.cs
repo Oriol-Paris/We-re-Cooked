@@ -42,9 +42,16 @@ public class CustomerManager : MonoBehaviour
 
     void SpawnCustomer()
     {
-        Receipe newReceipe = ReceipeGenerator.instance.GenRandomReceipe(2, 2);
-        Customer newCustomer = new Customer(newReceipe, customerWaitTime);
-        customers.Add(newCustomer);
+        if (ReceipeGenerator.instance != null)
+        {
+            Receipe newReceipe = ReceipeGenerator.instance.GenRandomReceipe(2, 2);
+            Customer newCustomer = new Customer(newReceipe, customerWaitTime);
+            customers.Add(newCustomer);
+        }
+        else
+        {
+            Debug.Log("El generador es null wtf");
+        }
 
         if (customerPrefab != null && spawnPoint != null)
         {
