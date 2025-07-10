@@ -1012,8 +1012,13 @@ MonoBehaviour:
     - {fileID: 626649555}
     - {fileID: 1907418307}
     - {fileID: 1646271780}
+    outlines: []
   - meshR:
     - {fileID: 345953411}
+    outlines: []
+  colorTransitionSpeed: 15
+  currTypeCol: {r: 0, g: 0, b: 0, a: 0}
+  currTypeColIndex: 0
 --- !u!4 &466218634
 Transform:
   m_ObjectHideFlags: 0
@@ -1293,8 +1298,13 @@ MonoBehaviour:
     - {fileID: 709327339}
     - {fileID: 1529793141}
     - {fileID: 1736694048}
+    outlines: []
   - meshR:
     - {fileID: 554602653}
+    outlines: []
+  colorTransitionSpeed: 15
+  currTypeCol: {r: 0, g: 0, b: 0, a: 0}
+  currTypeColIndex: 0
 --- !u!4 &584743005
 Transform:
   m_ObjectHideFlags: 0
@@ -1734,6 +1744,10 @@ PrefabInstance:
       propertyPath: recipe
       value: 
       objectReference: {fileID: 1521818322}
+    - target: {fileID: 2261698008714218202, guid: e03ebc82ca5124d4a9d520c945d3fbbd, type: 3}
+      propertyPath: treatmentPt
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7313905757946814388, guid: e03ebc82ca5124d4a9d520c945d3fbbd, type: 3}
       propertyPath: m_Name
       value: RecipeScore
@@ -2053,8 +2067,13 @@ MonoBehaviour:
     - {fileID: 1359347210}
     - {fileID: 738161747}
     - {fileID: 269807887}
+    outlines: []
   - meshR:
     - {fileID: 511638613}
+    outlines: []
+  colorTransitionSpeed: 15
+  currTypeCol: {r: 0, g: 0, b: 0, a: 0}
+  currTypeColIndex: 0
 --- !u!4 &809064237
 Transform:
   m_ObjectHideFlags: 0
@@ -2334,8 +2353,13 @@ MonoBehaviour:
     - {fileID: 2066226954}
     - {fileID: 317952768}
     - {fileID: 1867002925}
+    outlines: []
   - meshR:
     - {fileID: 1773424091}
+    outlines: []
+  colorTransitionSpeed: 15
+  currTypeCol: {r: 0, g: 0, b: 0, a: 0}
+  currTypeColIndex: 0
 --- !u!4 &1025148167
 Transform:
   m_ObjectHideFlags: 0
@@ -2586,6 +2610,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredientL: []
   currIngredient: []
+  ingTypeS: []
 --- !u!1 &1148418959
 GameObject:
   m_ObjectHideFlags: 0
@@ -2728,8 +2753,13 @@ MonoBehaviour:
     - {fileID: 1986044251}
     - {fileID: 968345001}
     - {fileID: 1405788539}
+    outlines: []
   - meshR:
     - {fileID: 623560682}
+    outlines: []
+  colorTransitionSpeed: 15
+  currTypeCol: {r: 0, g: 0, b: 0, a: 0}
+  currTypeColIndex: 0
 --- !u!4 &1199637313
 Transform:
   m_ObjectHideFlags: 0
@@ -2837,8 +2867,13 @@ MonoBehaviour:
     - {fileID: 410086996}
     - {fileID: 2056358706}
     - {fileID: 147910931}
+    outlines: []
   - meshR:
     - {fileID: 1631342830}
+    outlines: []
+  colorTransitionSpeed: 15
+  currTypeCol: {r: 0, g: 0, b: 0, a: 0}
+  currTypeColIndex: 0
 --- !u!4 &1204074698
 Transform:
   m_ObjectHideFlags: 0
@@ -3015,8 +3050,13 @@ MonoBehaviour:
     - {fileID: 1737971495}
     - {fileID: 424313152}
     - {fileID: 209002939}
+    outlines: []
   - meshR:
     - {fileID: 741421241}
+    outlines: []
+  colorTransitionSpeed: 15
+  currTypeCol: {r: 0, g: 0, b: 0, a: 0}
+  currTypeColIndex: 0
 --- !u!4 &1343604424
 Transform:
   m_ObjectHideFlags: 0
@@ -3300,6 +3340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 456169e71cfc6b54f98ff5d5df1c89be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ingTreatS: []
 --- !u!1 &1521818320
 GameObject:
   m_ObjectHideFlags: 0
@@ -4569,8 +4610,13 @@ MonoBehaviour:
     - {fileID: 24288017}
     - {fileID: 979583205}
     - {fileID: 737862745}
+    outlines: []
   - meshR:
     - {fileID: 111866772}
+    outlines: []
+  colorTransitionSpeed: 15
+  currTypeCol: {r: 0, g: 0, b: 0, a: 0}
+  currTypeColIndex: 0
 --- !u!4 &2132313680
 Transform:
   m_ObjectHideFlags: 0
@@ -5041,8 +5087,13 @@ MonoBehaviour:
     - {fileID: 2165918699262451773}
     - {fileID: 2515729430512209445}
     - {fileID: 362333628126250064}
+    outlines: []
   - meshR:
     - {fileID: 2295880815046393432}
+    outlines: []
+  colorTransitionSpeed: 15
+  currTypeCol: {r: 0, g: 0, b: 0, a: 0}
+  currTypeColIndex: 0
 --- !u!54 &8909731569160531822
 Rigidbody:
   m_ObjectHideFlags: 0
