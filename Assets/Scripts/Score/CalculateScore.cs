@@ -1,27 +1,23 @@
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
-using System.Net.Mail;
-using System.Net.NetworkInformation;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class CalculateScore : MonoBehaviour
 {
-    public Receipe r;
-    public ReceipeContainer recipe;
-
-    public List<Ingredient> ingredients;
-
     public ScoreBar score;
+
+    public ReceipeContainer recipe;
+    public Receipe r;
 
     [Header("Points x Aspects")]
     public int typePt;
     public int colorPt;
+    public int treatmentPt;
     public int objMultiplier;
 
     [Header("Scores")]
-    private int maxScore;
+    public int maxScore;
     public int recipeScore;
     public int ingScore;
 
@@ -34,9 +30,6 @@ public class CalculateScore : MonoBehaviour
     private void Start()
     {
         recipieReady = false;
-        //maxIngAmount = 3;
-
-        //r = recipe.currentR;
     }
 
     /*IEnumerator UpdateRecipie()
@@ -51,22 +44,20 @@ public class CalculateScore : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var ing = other.GetComponent<Ingredient>();
-        if (ing == null || recipieReady)
-            return;
-        else
-        {
-            //Add the ingredient to the plate and check if the plate is full
-            ingredients.Add(ing);
-            currIngAmount++;
-            if (currIngAmount >= maxIngAmount)
-                recipieReady = true;
-        }
+        var plate = other.GetComponent<IngredientContainer>();
+
+        if(plate.receivingTreatement == ReceipeTreatement.NONE) { return; }
+
+        CalculateMaxScore();
+        if (plate.receivingTreatement != recipe.currentR.ingredientTreat)
+            treatmentPt = 0;
+
+        CompareIngredientVsRecipe(plate.ingredientL);
     }
 
-    public void CompareIngredientVsRecipe()
+    public void CompareIngredientVsRecipe(List<IngredientSerializable> ingredients)
     {
-        CalculateMaxScore();
+        
         foreach (var ing in ingredients)
         {
             ingScore = 0;
@@ -77,7 +68,7 @@ public class CalculateScore : MonoBehaviour
         }
     }
 
-    void CheckIngredientTypes(Ingredient ing)
+    void CheckIngredientTypes(IngredientSerializable ing)
     {
         foreach (var t in ing.ingredientTypes)
         {
@@ -88,7 +79,7 @@ public class CalculateScore : MonoBehaviour
         }
     }
 
-    void CheckIngredientColors(Ingredient ing)
+    void CheckIngredientColors(IngredientSerializable ing)
     {
         foreach (var c in ing.ingredientColors)
         {
@@ -103,16 +94,16 @@ public class CalculateScore : MonoBehaviour
     void Calculate()
     {
         //ingScore *= objMultiplier;
-        recipeScore += ingScore;
+        recipeScore += ingScore + treatmentPt;
 
         score.UpdateBar(recipeScore, maxScore);
     }
 
     void CalculateMaxScore() //Case all ingredients are perfect
     {
-        maxScore = r.ingredientTypes.Count * typePt + //pts for matching type
-            r.ingredientColors.Count * colorPt + //pts for matching colors
-            ingredients.Count; //pts for treatment
+        maxScore = r.ingredientTypes.Count * typePt //pts for matching type
+            + r.ingredientColors.Count * colorPt //pts for matching colors
+            + treatmentPt; //pts for treatment
     }
 
     public bool RecipieReady() { return recipieReady; }
@@ -121,5 +112,5 @@ public class CalculateScore : MonoBehaviour
 
     public int GetRecipieScore() { return recipeScore; }
 
-    public void GetCurrentRecipie(Receipe r) { this.r = r; }
+    public void SetCurrentRecipie(Receipe r) { this.r = r; }
 }
