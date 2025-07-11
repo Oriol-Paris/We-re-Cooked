@@ -21,20 +21,14 @@ public class CalculateScore : MonoBehaviour
     public int recipeScore;
     public int ingScore;
 
-    [Header("Ingredients In Plate")]
-    [SerializeField]
-    private int maxIngAmount;
-    [SerializeField]
-    private int currIngAmount;
-
-    bool recipieReady;
+    [Header("Other")]
+    public float timeBeforeResetScore;
 
     public GameObject lastPlate;
 
 
     private void Start()
     {
-        recipieReady = false;
         StartCoroutine(UpdateRecipie());
     }
 
@@ -60,16 +54,16 @@ public class CalculateScore : MonoBehaviour
 
         if (plate.receivingTreatement == ReceipeTreatement.NONE) { return; }
 
+        score.SetScoreState(true); //Activate scorebar
+
         CalculateMaxScore();
+
         if (plate.receivingTreatement != recipe.currentR.ingredientTreat)
             treatmentPt = 0;
 
         CompareIngredientVsRecipe(plate.ingredientL);
 
-        if (lastPlate != null) Destroy(lastPlate);
-
-        PlateManager.instance.SpawnPlate();
-
+        StartCoroutine(CleanWindow());
     }
 
     public void CompareIngredientVsRecipe(List<IngredientSerializable> ingredients)
@@ -125,9 +119,20 @@ public class CalculateScore : MonoBehaviour
             + treatmentPt; //pts for treatment
     }
 
-    public bool RecipieReady() { return recipieReady; }
+    IEnumerator CleanWindow()
+    {
+        if (lastPlate != null) Destroy(lastPlate);
 
-    public void SetMaxIngAmount(int maxIngAmount) { this.maxIngAmount = maxIngAmount; }
+        PlateManager.instance.SpawnPlate();
+
+        r = new Receipe();
+        StartCoroutine(UpdateRecipie());
+
+        yield return new WaitForSeconds(timeBeforeResetScore);
+
+        score.UpdateBar(0, 0);
+        score.SetScoreState(false);
+    }
 
     public int GetRecipieScore() { return recipeScore; }
 

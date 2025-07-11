@@ -2476,6 +2476,10 @@ PrefabInstance:
       propertyPath: treatmentPt
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2261698008714218202, guid: e03ebc82ca5124d4a9d520c945d3fbbd, type: 3}
+      propertyPath: timeBeforeResetScore
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7313905757946814388, guid: e03ebc82ca5124d4a9d520c945d3fbbd, type: 3}
       propertyPath: m_Name
       value: RecipeScore
