@@ -30,9 +30,10 @@ public class CalculateScore : MonoBehaviour
     private void Start()
     {
         recipieReady = false;
+        StartCoroutine(UpdateRecipie());
     }
 
-    /*IEnumerator UpdateRecipie()
+    IEnumerator UpdateRecipie()
     {
         yield return null;
         r = recipe.currentR;
@@ -40,10 +41,12 @@ public class CalculateScore : MonoBehaviour
             StartCoroutine(UpdateRecipie());
         else
             StopCoroutine(UpdateRecipie());
-    }*/
+    }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!other.GetComponent<IngredientContainer>()) return;
+
         var plate = other.GetComponent<IngredientContainer>();
 
         if(plate.receivingTreatement == ReceipeTreatement.NONE) { return; }
