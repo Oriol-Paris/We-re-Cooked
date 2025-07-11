@@ -45,7 +45,7 @@ public class ObjectGrabber : MonoBehaviour
     void TryGrab()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hit, maxGrabDistance, lm))
+        if (Physics.Raycast(ray, out RaycastHit hit, maxGrabDistance))
         {
             if (hit.collider.CompareTag("Grabbable"))
             {
@@ -66,6 +66,26 @@ public class ObjectGrabber : MonoBehaviour
                     joint.anchor = grabbedRb.transform.InverseTransformPoint(hit.point);
                 }
             }
+            else if (hit.collider.CompareTag("Door"))
+            {
+                Rigidbody rb = hit.collider.attachedRigidbody;
+                if (rb != null)
+                {
+                    Debug.Log("Grabbed a door: " + rb.name);
+                    grabbedRb = rb;
+
+                    joint = grabbedRb.gameObject.AddComponent<SpringJoint>();
+                    joint.autoConfigureConnectedAnchor = false;
+                    joint.connectedAnchor = grabAnchor.position;
+
+                    joint.spring = 1200f;
+                    joint.damper = 80f;
+                    joint.maxDistance = 0.05f;
+
+                    joint.connectedBody = null;
+                    joint.anchor = grabbedRb.transform.InverseTransformPoint(hit.point);
+                }
+            }
         }
     }
 
@@ -74,6 +94,13 @@ public class ObjectGrabber : MonoBehaviour
         if (joint != null)
         {
             Destroy(joint);
+            joint = null;
+        }
+
+        if (grabbedRb != null)
+        {
+            grabbedRb.linearVelocity *= 0f;
+            grabbedRb.angularVelocity *= 0f;
         }
 
         grabbedRb = null;
