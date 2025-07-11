@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1706.6667
     height: 869.3334
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Project
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 100
+  controlID: 110
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 101
+  controlID: 55
   draggingID: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 57
+  controlID: 56
   draggingID: 0
 --- !u!114 &8
 MonoBehaviour:
@@ -218,8 +218,8 @@ MonoBehaviour:
     y: 0
     width: 1010
     height: 511.33334
-  m_MinSize: {x: 202, y: 226}
-  m_MaxSize: {x: 4002, y: 4026}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 12}
@@ -426,18 +426,18 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 74a6ffff24d2ffff20fbffff
+      m_ExpandedIDs: 82f3ffff48f4ffffd2f5ffffe2f5ffff28f8ffff14fbffff80b50000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: ChickenWing(TEST) (1)
-        m_OriginalName: ChickenWing(TEST) (1)
+        m_Name: RecipeScore
+        m_OriginalName: RecipeScore
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 44392
+        m_UserData: -3202
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
         m_OriginalEventType: 0
@@ -1072,9 +1072,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: -1.3161726, y: -0.6297434, z: 3.1197977}
+    m_Target: {x: 4.5042973, y: -0.50849366, z: 13.495569}
     speed: 2
-    m_Value: {x: -1.3161726, y: -0.6297434, z: 3.1197977}
+    m_Value: {x: 4.5042973, y: -0.50849366, z: 13.495569}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1120,13 +1120,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.07823061, y: 0.8948753, z: -0.1727847, w: 0.40421274}
+    m_Target: {x: 0.122751564, y: 0.26890773, z: -0.03438553, w: 0.9548114}
     speed: 2
-    m_Value: {x: 0.07822419, y: 0.8948018, z: -0.17277052, w: 0.40417954}
+    m_Value: {x: 0.12273766, y: 0.26887727, z: -0.034381635, w: 0.9547033}
   m_Size:
-    m_Target: 1.7063426
+    m_Target: 7.2885838
     speed: 2
-    m_Value: 1.7063426
+    m_Value: 7.2885838
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1839,7 +1839,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Ingredients_Receipes
+    - Assets
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1849,16 +1849,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/Ingredients_Receipes
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\danie\Documents\Git\We-re-Cooked
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 112.00003}
-    m_SelectedIDs: 34b20000
-    m_LastClickedID: 45620
-    m_ExpandedIDs: 0000000036b0000038b000002cb2000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 79}
+    m_SelectedIDs: 10b00000
+    m_LastClickedID: 45072
+    m_ExpandedIDs: 0000000010b0000012b000001ab200005cc1000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1887,7 +1887,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000036b0000038b00000
+    m_ExpandedIDs: 0000000010b0000012b00000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2019,7 +2019,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 49660
+  m_LastSelectedObjectID: -3190
 --- !u!114 &21
 MonoBehaviour:
   m_ObjectHideFlags: 52

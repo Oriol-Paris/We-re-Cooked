@@ -22,7 +22,9 @@ public class CalculateScore : MonoBehaviour
     public int ingScore;
 
     [Header("Ingredients In Plate")]
+    [SerializeField]
     private int maxIngAmount;
+    [SerializeField]
     private int currIngAmount;
 
     bool recipieReady;
@@ -66,8 +68,8 @@ public class CalculateScore : MonoBehaviour
             ingScore = 0;
             CheckIngredientTypes(ing);
             CheckIngredientColors(ing);
-            if (currIngAmount < maxIngAmount)
-                Calculate();
+            //if (currIngAmount < maxIngAmount)
+            Calculate();
         }
     }
 
@@ -98,6 +100,7 @@ public class CalculateScore : MonoBehaviour
     {
         //ingScore *= objMultiplier;
         recipeScore += ingScore + treatmentPt;
+        if (recipeScore < 0) recipeScore = 0;
 
         score.UpdateBar(recipeScore, maxScore);
     }
