@@ -46,4 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxPlates: 5
   plateSpawnSeparation: 0.3
-  platePrefab: {fileID: 4445537047063747933, guid: f8b765bb8cc00324593598d5c32b16f5, type: 3}
+  platePrefab: {fileID: 4445537047063747933, guid: 1ea85544fc925d047947e7b3bf9a1e2f, type: 3}

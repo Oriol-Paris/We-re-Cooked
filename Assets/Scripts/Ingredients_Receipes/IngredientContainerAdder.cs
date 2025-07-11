@@ -5,6 +5,8 @@ public class IngredientContainerAdder : MonoBehaviour {
 
 
     void OnTriggerEnter(Collider col) {
+        if (!ingredientC.CanAddIngredient()) return;
+
         if (col.GetComponent<Ingredient>()) {
             ingredientC.AddIngredient(col.GetComponent<Ingredient>());
             Destroy(col.GetComponent<Ingredient>());

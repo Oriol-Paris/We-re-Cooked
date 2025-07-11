@@ -29,6 +29,9 @@ public class CalculateScore : MonoBehaviour
 
     bool recipieReady;
 
+    public GameObject lastPlate;
+
+
     private void Start()
     {
         recipieReady = false;
@@ -51,13 +54,22 @@ public class CalculateScore : MonoBehaviour
 
         var plate = other.GetComponent<IngredientContainer>();
 
-        if(plate.receivingTreatement == ReceipeTreatement.NONE) { return; }
+        recipeScore = 0;
+
+        lastPlate = plate.gameObject;
+
+        if (plate.receivingTreatement == ReceipeTreatement.NONE) { return; }
 
         CalculateMaxScore();
         if (plate.receivingTreatement != recipe.currentR.ingredientTreat)
             treatmentPt = 0;
 
         CompareIngredientVsRecipe(plate.ingredientL);
+
+        if (lastPlate != null) Destroy(lastPlate);
+
+        PlateManager.instance.SpawnPlate();
+
     }
 
     public void CompareIngredientVsRecipe(List<IngredientSerializable> ingredients)
@@ -103,6 +115,7 @@ public class CalculateScore : MonoBehaviour
         if (recipeScore < 0) recipeScore = 0;
 
         score.UpdateBar(recipeScore, maxScore);
+
     }
 
     void CalculateMaxScore() //Case all ingredients are perfect

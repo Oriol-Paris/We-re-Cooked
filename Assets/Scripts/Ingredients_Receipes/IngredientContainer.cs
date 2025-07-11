@@ -14,6 +14,10 @@ public class IngredientContainer : MonoBehaviour {
         return ingredientL.Contains(i);
     }
 
+    public bool CanAddIngredient() {
+        return currIng < maxIng;
+    }
+
     public void AddIngredient(Ingredient i) {
         if (currIng >= maxIng) return;
         currIng++;
