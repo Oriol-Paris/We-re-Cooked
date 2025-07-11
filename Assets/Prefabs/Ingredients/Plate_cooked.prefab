@@ -9,9 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6865741870973260531}
+  - component: {fileID: 826703616826296819}
+  - component: {fileID: 1581050790773397919}
   - component: {fileID: 7631999063152881502}
   - component: {fileID: 2458664120703522759}
-  - component: {fileID: 3482821334105910447}
+  - component: {fileID: 3348949780699409849}
   m_Layer: 2
   m_Name: pasta
   m_TagString: Untagged
@@ -34,6 +36,42 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7295449665075842241}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &826703616826296819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3842935802300548368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0442ebfee8b095b43a4230962a963e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientC: {fileID: 5252197589381262786}
+  colorL: []
+  colorTransitionSpeed: 15
+  currCol: {r: 0, g: 0, b: 0, a: 0}
+  currColIndex: 0
+  meshR: {fileID: 2458664120703522759}
+--- !u!114 &1581050790773397919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3842935802300548368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e288fd00578bb7c468caefb505140ad6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientC: {fileID: 5252197589381262786}
+  colorL: []
+  colorTransitionSpeed: 15
+  currCol: {r: 0, g: 0, b: 0, a: 0}
+  currColIndex: 0
+  outline: {fileID: 3348949780699409849}
 --- !u!33 &7631999063152881502
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -87,7 +125,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3482821334105910447
+--- !u!114 &3348949780699409849
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

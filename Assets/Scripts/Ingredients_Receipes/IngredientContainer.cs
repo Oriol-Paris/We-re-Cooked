@@ -13,6 +13,7 @@ public class IngredientContainer : MonoBehaviour {
     public bool CheckContainsIngredient(IngredientSerializable i) {
         return ingredientL.Contains(i);
     }
+
     public void AddIngredient(Ingredient i) {
         if (currIng >= maxIng) return;
         currIng++;
