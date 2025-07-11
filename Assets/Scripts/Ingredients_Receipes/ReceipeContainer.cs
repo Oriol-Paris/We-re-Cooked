@@ -22,12 +22,15 @@ public class ReceipeContainer : MonoBehaviour {
         currentR = ReceipeGenerator.instance.GenRandomReceipe(maxTypes, maxColors);
     }
 
-    public void RefreshHudList() {
-        while (listAxis.childCount > 0) {
+    public void RefreshHudList()
+    {
+        while (listAxis.childCount > 0)
+        {
             Destroy(listAxis.GetChild(0));
         }
 
-        for (int i = 0; i < currentR.ingredientTypes.Count; i++) {
+        for (int i = 0; i < currentR.ingredientTypes.Count; i++)
+        {
             var tmp = Instantiate(ingredientPart);
             tmp.transform.parent = listAxis;
             RectTransform rt = tmp.GetComponent<RectTransform>();
@@ -41,7 +44,8 @@ public class ReceipeContainer : MonoBehaviour {
                 IngredientManager.instance.GetTypeColorByIndex((int)currentR.ingredientTypes[i]);
         }
 
-        for (int i = 0; i < currentR.ingredientColors.Count; i++) {
+        for (int i = 0; i < currentR.ingredientColors.Count; i++)
+        {
             var tmp = Instantiate(ingredientPart);
             tmp.transform.parent = listAxis;
             RectTransform rt = tmp.GetComponent<RectTransform>();
@@ -63,6 +67,13 @@ public class ReceipeContainer : MonoBehaviour {
             ReceipeGenerator.instance.GetTreatSpriteByIndex((int)currentR.ingredientTreat);
 
     }
+
+    public void SetReceipe(Receipe r)
+    {
+        currentR = r;
+        RefreshHudList();
+    }
+
 
     void OnTriggerEnter(Collider col) {
         //COMPROBAR RECETA (seguramente en otro script)

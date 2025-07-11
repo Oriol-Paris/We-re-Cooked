@@ -36,7 +36,7 @@ public class CustomerManager : MonoBehaviour
             customer.UpdateWait(Time.deltaTime);
             if (customer.isAngry)
             {
-                //Hacer que se enfaden
+                Debug.Log("Angy");
             }
         }
     }
@@ -49,8 +49,18 @@ public class CustomerManager : MonoBehaviour
             Instantiate(customerPrefab, spawnPoint.position, Quaternion.identity);
         }
 
- 
+
     }
+
+    public void RegisterCustomer(Customer customer)
+    {
+        if (!customers.Contains(customer))
+        {
+            customers.Add(customer);
+        }
+    }
+
+
 
     public List<Customer> GetAllCustomers()
     {

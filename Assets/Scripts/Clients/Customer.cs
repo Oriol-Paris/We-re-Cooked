@@ -15,7 +15,17 @@ public class Customer : MonoBehaviour
         this.waitTime = 30;
         this.maxWaitTime = 30;
         this.isAngry = false;
+
+        if (CustomerManager.instance != null)
+        {
+            CustomerManager.instance.RegisterCustomer(this);
+        }
+        else
+        {
+            Debug.Log("No se donde esta el manager");
+        }
     }
+
 
     public void UpdateWait(float deltaTime)
     {
