@@ -5,15 +5,15 @@ using UnityEngine;
 public class Customer : MonoBehaviour
 {
     public Receipe requestedReceipe;
-    public float waitTime;
-    public float maxWaitTime;
+    public float waitTime = 30;
+    public float maxWaitTime = 30;
     public bool isAngry;
 
-    public Customer(Receipe receipe, float waitTime)
+    void Awake()
     {
-        this.requestedReceipe = receipe;
-        this.waitTime = waitTime;
-        this.maxWaitTime = waitTime;
+        this.requestedReceipe = ReceipeGenerator.instance.GenRandomReceipe(4, 3);
+        this.waitTime = 30;
+        this.maxWaitTime = 30;
         this.isAngry = false;
     }
 

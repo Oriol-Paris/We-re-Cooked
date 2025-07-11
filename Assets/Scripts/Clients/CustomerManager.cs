@@ -44,11 +44,6 @@ public class CustomerManager : MonoBehaviour
     void SpawnCustomer()
     {
 
-        Receipe newReceipe = ReceipeGenerator.instance.GenRandomReceipe(4, 3);
-        Customer newCustomer = new Customer(newReceipe, customerWaitTime);
-        customers.Add(newCustomer);
-
-
         if (customerPrefab != null && spawnPoint != null)
         {
             Instantiate(customerPrefab, spawnPoint.position, Quaternion.identity);
