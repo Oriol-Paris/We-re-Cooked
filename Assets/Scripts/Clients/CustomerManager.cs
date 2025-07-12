@@ -8,6 +8,7 @@ public class CustomerRegister
     public Transform pos;
     public GameObject customerO;
     public ReceipeContainer recipes;
+    public CalculateScore score;
 }
 
 
@@ -55,6 +56,8 @@ public class CustomerManager : MonoBehaviour
                     spawnPoints[i].customerO = c;
                     c.transform.position = spawnPoints[i].pos.position;
                     spawnPoints[i].recipes.ResetReceipe();
+                    spawnPoints[i].score.customerIndex = i;
+                    spawnPoints[i].customerO.GetComponent<Customer>().scoreTime = spawnPoints[i].score.timeBeforeResetScore;
                     break;
                 }
             }

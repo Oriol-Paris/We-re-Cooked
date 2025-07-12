@@ -10,6 +10,9 @@ public class CalculateScore : MonoBehaviour
     public ReceipeContainer recipe;
     public Receipe r;
 
+    //public Customer customer;
+    public int customerIndex;
+
     [Header("Points x Aspects")]
     public int typePt;
     public int colorPt;
@@ -74,7 +77,6 @@ public class CalculateScore : MonoBehaviour
             ingScore = 0;
             CheckIngredientTypes(ing);
             CheckIngredientColors(ing);
-            //if (currIngAmount < maxIngAmount)
             Calculate();
         }
     }
@@ -124,6 +126,8 @@ public class CalculateScore : MonoBehaviour
         if (lastPlate != null) Destroy(lastPlate);
 
         PlateManager.instance.SpawnPlate();
+
+        CustomerManager.instance.spawnPoints[customerIndex].customerO.GetComponent<Customer>().plateServed = true;
 
         r = new Receipe();
         StartCoroutine(UpdateRecipie());
