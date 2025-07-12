@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class CustomerSpawnPoint
+public class CustomerRegister
 {
     public Transform pos;
     public GameObject customerO;
+    public ReceipeContainer recipes;
 }
 
 
@@ -15,17 +16,14 @@ public class CustomerManager : MonoBehaviour
     public static CustomerManager instance;
 
     public GameObject customerPrefab;
-    public Transform spawnPoint, freeSpawn;
-    public List<Transform> spawnPoints = new List<Transform>();
+    public List<CustomerRegister> spawnPoints = new List<CustomerRegister>();
 
     public int maxCustomers = 3;
     public float spawnInterval = 10f;
     public float customerWaitTime = 30f;
 
-    public ReceipeContainer recipes;
-
-    [SerializeField]
-    private List<Customer> customers = new List<Customer>();
+    //[SerializeField]
+    //private List<Customer> customers = new List<Customer>();
     private float spawnTimer;
 
     void Awake()
@@ -38,55 +36,55 @@ public class CustomerManager : MonoBehaviour
     {
         spawnTimer += Time.deltaTime;
 
-        if (spawnTimer >= spawnInterval && customers.Count < maxCustomers)
+        if (spawnTimer >= spawnInterval)
         {
-            SpawnCustomer(this.spawnPoint);
+            SpawnCustomer();
             spawnTimer = 0;
         }
     }
 
-    void SpawnCustomer(Transform spawnPoint)
+    void SpawnCustomer()
     {
-        if (customerPrefab != null && spawnPoint != null)
+        if (customerPrefab != null)
         {
-            Instantiate(customerPrefab, spawnPoint.position, Quaternion.identity);
+            for (int i = 0; i < spawnPoints.Count; i++)
+            {
+                if (spawnPoints[i].customerO == null)
+                {
+                    var c = Instantiate(customerPrefab, transform.position, Quaternion.identity);
+                    spawnPoints[i].customerO = c;
+                    c.transform.position = spawnPoints[i].pos.position;
+                    spawnPoints[i].recipes.ResetReceipe();
+                    break;
+                }
+            }
         }
     }
 
-    public void RegisterCustomer(Customer customer)
-    {
-        if (!customers.Contains(customer))
-        {
-            recipes.ResetReceipe();
-            //recipes.RefreshHudList();
-            customer.SetRecipie(recipes.currentR);
-            customers.Add(customer);
-        }
-    }
+    //public void RegisterCustomer(Customer customer)
+    //{
+    //    if (!customers.Contains(customer))
+    //    {
+    //        recipes.ResetReceipe();
+    //        customer.SetRecipie(recipes.currentR);
+    //    }
+    //}
 
-    public List<Customer> GetAllCustomers()
-    {
-        return customers;
-    }
+    //public List<Customer> GetAllCustomers()
+    //{
+    //    return customers;
+    //}
 
-    public void RemoveCustomer(Customer c)
-    {
-        if (customers.Contains(c))
-        {
-            customers.Remove(c);
-        }
-    }
+    //public void RemoveCustomer(Customer c)
+    //{
+    //    if (customers.Contains(c))
+    //    {
+    //        customers.Remove(c);
+    //    }
+    //}
 
-    public Customer GetFirstWaitingCustomer()
-    {
-        return customers.Count > 0 ? customers[0] : null;
-    }
-
-    public void RenewCustomer(Customer c)
-    {
-        freeSpawn = c.GetPos();
-        RemoveCustomer(c);
-        SpawnCustomer(freeSpawn);
-        freeSpawn = null;
-    }
+    //public Customer GetFirstWaitingCustomer()
+    //{
+    //    return customers.Count > 0 ? customers[0] : null;
+    //}
 }

@@ -24,14 +24,14 @@ public class Customer : MonoBehaviour
         this.maxWaitTime = 30;
         this.isAngry = false;
 
-        if (CustomerManager.instance != null)
-        {
-            CustomerManager.instance.RegisterCustomer(this);
-        }
-        else
-        {
-            Debug.Log("No se donde esta el manager");
-        }
+        //if (CustomerManager.instance != null)
+        //{
+        //    CustomerManager.instance.RegisterCustomer(this);
+        //}
+        //else
+        //{
+        //    Debug.Log("No se donde esta el manager");
+        //}
 
         client.SetTrigger("NewClient");
         patienceBar.fillAmount = 0;
@@ -48,7 +48,7 @@ public class Customer : MonoBehaviour
 
         if (waitTime <= 0)
         {
-            CustomerManager.instance.RenewCustomer(this);
+            //CustomerManager.instance.RenewCustomer(this);
             waitTime = 0;
             client.SetTrigger("ClientLeft");
             StartCoroutine(WaitForDestroy());
@@ -75,7 +75,7 @@ public class Customer : MonoBehaviour
 
     void UpdateBar()
     {
-        patienceBar.fillAmount = Mathf.Lerp(0.1f, 1, 1-GetWaitPercentage());
+        patienceBar.fillAmount = Mathf.Lerp(0.1f, 1, 1 - GetWaitPercentage());
     }
 
     public void SetPos(Transform pos)
@@ -83,7 +83,7 @@ public class Customer : MonoBehaviour
         this.clientPos = pos;
     }
 
-    public Transform GetPos() {  return this.clientPos; }
+    public Transform GetPos() { return this.clientPos; }
 
     public void SetRecipie(Receipe r)
     {
