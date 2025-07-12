@@ -24,8 +24,8 @@ public class ReceipeContainer : MonoBehaviour {
     }
 
     public void RefreshHudList() {
-        while (listAxis.childCount > 0) {
-            Destroy(listAxis.GetChild(0));
+        for (int i = listAxis.childCount - 1; i >= 0; i--) {
+            Destroy(listAxis.GetChild(i));
         }
 
         for (int i = 0; i < currentR.ingredientTypes.Count; i++) {
