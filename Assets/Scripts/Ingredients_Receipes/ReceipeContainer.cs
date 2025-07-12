@@ -14,8 +14,8 @@ public class ReceipeContainer : MonoBehaviour {
 
 
     void Start() {
-        ResetReceipe();
-        RefreshHudList();
+        /*ResetReceipe();
+        RefreshHudList();*/
     }
 
     public void ResetReceipe() {
@@ -24,10 +24,9 @@ public class ReceipeContainer : MonoBehaviour {
     }
 
     public void RefreshHudList() {
-        if (listAxis.childCount > 0)
-            while (listAxis.childCount > 0) {
-                Destroy(listAxis.GetChild(0));
-            }
+        while (listAxis.childCount > 0) {
+            Destroy(listAxis.GetChild(0));
+        }
 
         for (int i = 0; i < currentR.ingredientTypes.Count; i++) {
             var tmp = Instantiate(ingredientPart);
