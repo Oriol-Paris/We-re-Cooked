@@ -2607,9 +2607,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customerPrefab: {fileID: 5539160678860809022, guid: d444e56e2f7fb2947906bc8e5b552ee3, type: 3}
   spawnPoint: {fileID: 1005849666}
-  maxCustomers: 3
+  freeSpawn: {fileID: 0}
+  spawnPoints: []
+  maxCustomers: 1
   spawnInterval: 3
-  customerWaitTime: 30
+  customerWaitTime: 10
+  recipes: {fileID: 1521818322}
   customers: []
 --- !u!4 &1005849666
 Transform:
@@ -2620,7 +2623,7 @@ Transform:
   m_GameObject: {fileID: 1005849664}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.4413667, y: -3.9589548, z: 8.174663}
+  m_LocalPosition: {x: -11.45, y: 0.4, z: 3.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
