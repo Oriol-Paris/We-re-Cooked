@@ -25,7 +25,7 @@ public class ReceipeContainer : MonoBehaviour {
 
     public void RefreshHudList() {
         for (int i = listAxis.childCount - 1; i >= 0; i--) {
-            Destroy(listAxis.GetChild(i));
+            Destroy(listAxis.GetChild(i).gameObject);
         }
 
         for (int i = 0; i < currentR.ingredientTypes.Count; i++) {
