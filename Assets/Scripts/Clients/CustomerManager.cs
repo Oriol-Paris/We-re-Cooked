@@ -52,7 +52,7 @@ public class CustomerManager : MonoBehaviour
             {
                 if (spawnPoints[i].customerO == null)
                 {
-                    var c = Instantiate(customerPrefab, transform.position, Quaternion.identity);
+                    var c = Instantiate(customerPrefab, transform.position, spawnPoints[i].pos.rotation);
                     spawnPoints[i].customerO = c;
                     c.transform.position = spawnPoints[i].pos.position;
                     spawnPoints[i].recipes.ResetReceipe();
