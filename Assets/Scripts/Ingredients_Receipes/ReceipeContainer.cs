@@ -20,12 +20,14 @@ public class ReceipeContainer : MonoBehaviour {
 
     public void ResetReceipe() {
         currentR = ReceipeGenerator.instance.GenRandomReceipe(maxTypes, maxColors);
+        RefreshHudList();
     }
 
     public void RefreshHudList() {
-        while (listAxis.childCount > 0) {
-            Destroy(listAxis.GetChild(0));
-        }
+        if (listAxis.childCount > 0)
+            while (listAxis.childCount > 0) {
+                Destroy(listAxis.GetChild(0));
+            }
 
         for (int i = 0; i < currentR.ingredientTypes.Count; i++) {
             var tmp = Instantiate(ingredientPart);
