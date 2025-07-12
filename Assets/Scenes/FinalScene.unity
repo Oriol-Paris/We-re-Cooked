@@ -5756,6 +5756,7 @@ GameObject:
   - component: {fileID: 1155827180}
   - component: {fileID: 1155827179}
   - component: {fileID: 1155827183}
+  - component: {fileID: 1155827184}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -5863,6 +5864,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountTxt: {fileID: 494755904}
+--- !u!114 &1155827184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155827178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e079435df70d5514caab484971d50ef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Menu
 --- !u!1 &1213225693
 GameObject:
   m_ObjectHideFlags: 0
@@ -11393,7 +11407,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1155827184}
         m_TargetAssemblyTypeName: SwapScenes, Assembly-CSharp
         m_MethodName: SwapScene
         m_Mode: 1
