@@ -17,7 +17,7 @@ public class ObjectGrabber : MonoBehaviour
     public LayerMask lm;
 
     public bool objGrabbed;
-
+    public AudioSource audio;
     void Start()
     {
         grabAnchor = new GameObject("GrabAnchor").transform;
@@ -43,6 +43,8 @@ public class ObjectGrabber : MonoBehaviour
         }
 
         objGrabbed = grabbedRb != null;
+        if(objGrabbed)
+            audio.Play();
     }
 
     void TryGrab()
