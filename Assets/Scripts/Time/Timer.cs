@@ -8,6 +8,8 @@ public class Timer : MonoBehaviour
     [SerializeField] private float min, sec;
 
     public bool stopTime;
+
+    public AudioSource audio;
     void Start()
     {
         min = maxTime.x;
@@ -38,6 +40,7 @@ public class Timer : MonoBehaviour
         min = 0;
         sec = 0;
         StopAllCoroutines();
+        audio.Play();
         SavedContent.instance.SaveContents();
     }
 

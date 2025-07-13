@@ -17,6 +17,7 @@ public class CookZone : MonoBehaviour {
 
     public ReceipeTreatement receipeTreatementResult;
 
+    public AudioSource audio;
 
     void Start() {
         canCook = true;
@@ -36,15 +37,17 @@ public class CookZone : MonoBehaviour {
             currIngredientL = tmp.ingredientL;
 
             Destroy(col.gameObject);
-
+            if (audio != null)
+                audio.Play();
             StartCoroutine(CookProcess());
         }
 
     }
 
     IEnumerator CookProcess() {
-        yield return new WaitForSeconds(cookTime);
 
+        yield return new WaitForSeconds(cookTime);
+        audio.Stop();
         var tmp = Instantiate(cookedResult, cookedResultLaunchPosNDir.position, Quaternion.identity);
         tmp.GetComponent<IngredientContainer>().ingredientL = currIngredientL;
         tmp.GetComponent<IngredientContainer>().receivingTreatement = receipeTreatementResult;

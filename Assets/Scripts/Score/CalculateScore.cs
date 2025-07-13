@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class CalculateScore : MonoBehaviour
@@ -29,6 +30,7 @@ public class CalculateScore : MonoBehaviour
 
     public GameObject lastPlate;
 
+    public AudioSource audio;
 
     private void Start()
     {
@@ -48,6 +50,8 @@ public class CalculateScore : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!other.GetComponent<IngredientContainer>()) return;
+
+        audio.Play();
 
         var plate = other.GetComponent<IngredientContainer>();
 

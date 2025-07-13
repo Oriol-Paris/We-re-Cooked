@@ -3,11 +3,13 @@ using UnityEngine;
 public class IngredientContainerAdder : MonoBehaviour {
     public IngredientContainer ingredientC;
 
+    public AudioSource audio;
 
     void OnTriggerEnter(Collider col) {
         if (!ingredientC.CanAddIngredient()) return;
 
         if (col.GetComponent<Ingredient>()) {
+            audio.Play();
             ingredientC.AddIngredient(col.GetComponent<Ingredient>());
             Destroy(col.GetComponent<Ingredient>());
             //col.GetComponent<Collider>().enabled = false;
