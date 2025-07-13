@@ -187,30 +187,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1718915707}
     m_Modifications:
-    - target: {fileID: 1085004047288528651, guid: e03ebc82ca5124d4a9d520c945d3fbbd, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1463023888143966242, guid: e03ebc82ca5124d4a9d520c945d3fbbd, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 58.517
-      objectReference: {fileID: 0}
-    - target: {fileID: 1463023888143966242, guid: e03ebc82ca5124d4a9d520c945d3fbbd, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1463023888143966242, guid: e03ebc82ca5124d4a9d520c945d3fbbd, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1463023888143966242, guid: e03ebc82ca5124d4a9d520c945d3fbbd, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.054
-      objectReference: {fileID: 0}
-    - target: {fileID: 1463023888143966242, guid: e03ebc82ca5124d4a9d520c945d3fbbd, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.038
-      objectReference: {fileID: 0}
     - target: {fileID: 2024734211228389828, guid: e03ebc82ca5124d4a9d520c945d3fbbd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.378
@@ -255,46 +231,6 @@ PrefabInstance:
       propertyPath: recipe
       value: 
       objectReference: {fileID: 507010606}
-    - target: {fileID: 2261698008714218202, guid: e03ebc82ca5124d4a9d520c945d3fbbd, type: 3}
-      propertyPath: treatmentPt
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2261698008714218202, guid: e03ebc82ca5124d4a9d520c945d3fbbd, type: 3}
-      propertyPath: objMultiplier
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2261698008714218202, guid: e03ebc82ca5124d4a9d520c945d3fbbd, type: 3}
-      propertyPath: timeBeforeResetScore
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5791675992064332177, guid: e03ebc82ca5124d4a9d520c945d3fbbd, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.963
-      objectReference: {fileID: 0}
-    - target: {fileID: 5791675992064332177, guid: e03ebc82ca5124d4a9d520c945d3fbbd, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 2.132
-      objectReference: {fileID: 0}
-    - target: {fileID: 5896128098709964562, guid: e03ebc82ca5124d4a9d520c945d3fbbd, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 58.517
-      objectReference: {fileID: 0}
-    - target: {fileID: 5896128098709964562, guid: e03ebc82ca5124d4a9d520c945d3fbbd, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5896128098709964562, guid: e03ebc82ca5124d4a9d520c945d3fbbd, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.000000031044
-      objectReference: {fileID: 0}
-    - target: {fileID: 5896128098709964562, guid: e03ebc82ca5124d4a9d520c945d3fbbd, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.053999
-      objectReference: {fileID: 0}
-    - target: {fileID: 5896128098709964562, guid: e03ebc82ca5124d4a9d520c945d3fbbd, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.037988007
-      objectReference: {fileID: 0}
     - target: {fileID: 6624928013511627113, guid: e03ebc82ca5124d4a9d520c945d3fbbd, type: 3}
       propertyPath: m_Camera
       value: 
@@ -302,10 +238,6 @@ PrefabInstance:
     - target: {fileID: 7313905757946814388, guid: e03ebc82ca5124d4a9d520c945d3fbbd, type: 3}
       propertyPath: m_Name
       value: RecipeScore
-      objectReference: {fileID: 0}
-    - target: {fileID: 8261452235971286909, guid: e03ebc82ca5124d4a9d520c945d3fbbd, type: 3}
-      propertyPath: m_Size.x
-      value: 1.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4939,7 +4871,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -5217,7 +5149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 860546703}
   m_Layer: 0
-  m_Name: Muebles
+  m_Name: --- Muebles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6764,7 +6696,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -13661,7 +13593,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2026411382}
   m_Layer: 0
-  m_Name: Aparatos
+  m_Name: --- Aparatos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
