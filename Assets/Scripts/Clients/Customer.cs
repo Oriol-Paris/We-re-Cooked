@@ -17,7 +17,7 @@ public class Customer : MonoBehaviour
 
     public Image patienceBar;
     public Animator client;
-    AudioSource audio;
+    public AudioSource audio;
 
     void Awake()
     {
@@ -27,7 +27,6 @@ public class Customer : MonoBehaviour
         this.plateServed = false;
 
         client.SetTrigger("NewClient");
-        audio = GetComponent<AudioSource>();
         audio.Play();
         patienceBar.fillAmount = 0;
         StartCoroutine(WaitToBeReady());
