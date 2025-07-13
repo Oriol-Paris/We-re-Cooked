@@ -55,7 +55,6 @@ public class Customer : MonoBehaviour
         }
         else
         {
-            CustomerManager.instance.AddRecipeDone();
             StartCoroutine(WaitForScore());
         }
     }

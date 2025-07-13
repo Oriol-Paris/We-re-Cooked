@@ -55,6 +55,8 @@ public class CalculateScore : MonoBehaviour
 
         var plate = other.GetComponent<IngredientContainer>();
 
+        CustomerManager.instance.AddRecipeDone();
+
         recipeScore = 0;
 
         lastPlate = plate.gameObject;
