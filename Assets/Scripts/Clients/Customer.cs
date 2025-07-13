@@ -43,13 +43,14 @@ public class Customer : MonoBehaviour
 
             UpdateBar();
 
-            if (waitTime <= 0)
+            if (waitTime <= 0 && !isAngry)
             {
+                isAngry = true;
                 waitTime = 0;
                 audio.Stop();
                 audio.clip = audioClips[0];
                 audio.Play();
-                Gone();
+                Gone(4);
             }
         }
         else
@@ -59,9 +60,9 @@ public class Customer : MonoBehaviour
         }
     }
 
-    IEnumerator WaitForDestroy()
+    IEnumerator WaitForDestroy(float time = 1f)
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(time);
         Destroy(this.gameObject);
     }
 
@@ -79,10 +80,10 @@ public class Customer : MonoBehaviour
     }
 
 
-    public void Gone()
+    public void Gone(float time = 1f)
     {
         client.SetTrigger("ClientLeft");
-        StartCoroutine(WaitForDestroy());
+        StartCoroutine(WaitForDestroy(time));
     }
 
     void UpdateBar()
