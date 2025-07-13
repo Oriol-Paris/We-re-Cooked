@@ -16,6 +16,7 @@ public class ObjectGrabber : MonoBehaviour
 
     public LayerMask lm;
 
+    public bool objGrabbed;
 
     void Start()
     {
@@ -40,6 +41,8 @@ public class ObjectGrabber : MonoBehaviour
         {
             Release();
         }
+
+        objGrabbed = grabbedRb != null;
     }
 
     void TryGrab()
@@ -86,6 +89,8 @@ public class ObjectGrabber : MonoBehaviour
                     joint.anchor = grabbedRb.transform.InverseTransformPoint(hit.point);
                 }
             }
+            else
+                objGrabbed = false;
         }
     }
 
