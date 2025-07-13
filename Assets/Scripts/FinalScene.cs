@@ -8,8 +8,7 @@ public class FinalScene : MonoBehaviour
 
     void Start()
     {
-        //Change the 00 with the amount
-        ShowOrdersCompleted(00);
+        ShowOrdersCompleted(SavedContent.instance.GetRecipiesAmount());
     }
 
     void ShowOrdersCompleted(int num)

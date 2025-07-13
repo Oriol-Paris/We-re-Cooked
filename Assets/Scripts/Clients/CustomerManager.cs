@@ -27,6 +27,8 @@ public class CustomerManager : MonoBehaviour
     //private List<Customer> customers = new List<Customer>();
     private float spawnTimer;
 
+    private int recipesDone;
+
     void Awake()
     {
         if (instance == null) instance = this;
@@ -64,30 +66,6 @@ public class CustomerManager : MonoBehaviour
         }
     }
 
-    //public void RegisterCustomer(Customer customer)
-    //{
-    //    if (!customers.Contains(customer))
-    //    {
-    //        recipes.ResetReceipe();
-    //        customer.SetRecipie(recipes.currentR);
-    //    }
-    //}
-
-    //public List<Customer> GetAllCustomers()
-    //{
-    //    return customers;
-    //}
-
-    //public void RemoveCustomer(Customer c)
-    //{
-    //    if (customers.Contains(c))
-    //    {
-    //        customers.Remove(c);
-    //    }
-    //}
-
-    //public Customer GetFirstWaitingCustomer()
-    //{
-    //    return customers.Count > 0 ? customers[0] : null;
-    //}
+    public void AddRecipeDone() { recipesDone++; }
+    public int GetRecipesDone() { return recipesDone; }
 }

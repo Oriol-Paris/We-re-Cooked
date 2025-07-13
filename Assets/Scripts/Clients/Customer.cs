@@ -48,7 +48,8 @@ public class Customer : MonoBehaviour
         }
         else
         {
-            Gone();
+            CustomerManager.instance.AddRecipeDone();
+            StartCoroutine(WaitForScore());
         }
     }
 

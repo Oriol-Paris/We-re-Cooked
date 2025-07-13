@@ -38,7 +38,7 @@ public class Timer : MonoBehaviour
         min = 0;
         sec = 0;
         StopAllCoroutines();
-        //Change Scene
+        SavedContent.instance.SaveContents();
     }
 
     public void SetMaxTime(int min, int sec) { maxTime = new Vector2Int(min, sec); }

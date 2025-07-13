@@ -9,6 +9,7 @@ public class SwapScenes : MonoBehaviour
 
     public void SwapScene()
     {
+        PlayerPrefs.Save();
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }
 
