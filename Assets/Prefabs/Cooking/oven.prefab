@@ -117,7 +117,7 @@ MonoBehaviour:
   canCook: 1
   cookTime: 3
   canCookCD: 0.5
-  cookedResult: {fileID: 4445537047063747933, guid: 301b48760dbc9774fa02f12d89d9f377, type: 3}
+  cookedResult: {fileID: 1930389141680038831, guid: 8407b0484100ce842a34b1f188916322, type: 3}
   cookedResultLaunchPosNDir: {fileID: 6136258256847279744}
   launchSpeed: 20
   currIngredientL: []
@@ -387,6 +387,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Horno
       objectReference: {fileID: 0}
+    - target: {fileID: 2056901520811228412, guid: 98e59a4b30805bc4e913cf3151a54a51, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -400,10 +404,40 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 98e59a4b30805bc4e913cf3151a54a51, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3853063213429109862}
+    - targetCorrespondingSourceObject: {fileID: 2056901520811228412, guid: 98e59a4b30805bc4e913cf3151a54a51, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2175178238355949021}
     - targetCorrespondingSourceObject: {fileID: -1730676172429756871, guid: 98e59a4b30805bc4e913cf3151a54a51, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4955894603104885772}
   m_SourcePrefab: {fileID: 100100000, guid: 98e59a4b30805bc4e913cf3151a54a51, type: 3}
+--- !u!1 &2640952462238281719 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2056901520811228412, guid: 98e59a4b30805bc4e913cf3151a54a51, type: 3}
+  m_PrefabInstance: {fileID: 4047919456994595595}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2175178238355949021
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2640952462238281719}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3205702657871549766, guid: 98e59a4b30805bc4e913cf3151a54a51, type: 3}
 --- !u!1 &3813546805254368858 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 98e59a4b30805bc4e913cf3151a54a51, type: 3}

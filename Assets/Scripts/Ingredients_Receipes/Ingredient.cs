@@ -41,6 +41,16 @@ public class Ingredient : MonoBehaviour {
             ingredientTypes.Add(IngredientManager.instance.GetRandomType());
         }
 
+        if (GetComponent<MeshRenderer>()) {
+            IngredientMeshes tmp = new IngredientMeshes();
+            tmp.meshR = new List<MeshRenderer>();
+            tmp.meshR.Add(GetComponent<MeshRenderer>());
+            tmp.outlines = new List<Outline>();
+            tmp.outlines.Add(GetComponent<Outline>());
+            meshRendL.Add(tmp);
+        }
+        maxColors = meshRendL.Count;
+
         for (int i = 0; i < maxColors; i++) {//randomColors
             ingredientColors.Add(IngredientManager.instance.GetRandomColor());
             for (int j = 0; j < meshRendL[i].meshR.Count; j++) {
