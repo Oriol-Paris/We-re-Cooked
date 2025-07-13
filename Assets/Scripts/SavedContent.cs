@@ -20,7 +20,7 @@ public class SavedContent : MonoBehaviour
     public void SaveContents()
     {
         //PlayerPrefs.SetFloat("Recipies", CustomerManager.instance.GetRecipesDone());
-        SaveRecipies(CustomerManager.instance.GetRecipesDone());
+        this.amountRecipies = CustomerManager.instance.GetRecipesDone();
         SceneManager.LoadScene("FinalScene", LoadSceneMode.Single);
     }
 
