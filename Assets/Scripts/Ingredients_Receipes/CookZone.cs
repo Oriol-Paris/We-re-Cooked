@@ -37,17 +37,17 @@ public class CookZone : MonoBehaviour {
             currIngredientL = tmp.ingredientL;
 
             Destroy(col.gameObject);
-
+            if (audio != null)
+                audio.Play();
             StartCoroutine(CookProcess());
         }
 
     }
 
     IEnumerator CookProcess() {
-        if(audio !=null)
-            audio.Play();
-        yield return new WaitForSeconds(cookTime);
 
+        yield return new WaitForSeconds(cookTime);
+        audio.Stop();
         var tmp = Instantiate(cookedResult, cookedResultLaunchPosNDir.position, Quaternion.identity);
         tmp.GetComponent<IngredientContainer>().ingredientL = currIngredientL;
         tmp.GetComponent<IngredientContainer>().receivingTreatement = receipeTreatementResult;
