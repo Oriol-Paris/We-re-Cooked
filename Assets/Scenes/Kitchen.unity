@@ -6794,7 +6794,7 @@ HingeJoint:
   m_UseAcceleration: 0
   m_Limits:
     min: -90
-    max: 0
+    max: -10
     bounciness: 0
     bounceMinVelocity: 0.2
     contactDistance: 0
@@ -9281,8 +9281,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.2070051, y: 0.8620094, z: 2.4558692}
-  m_Center: {x: -0.39567897, y: -0.1706707, z: 0.8625755}
+  m_Size: {x: 1.0609368, y: 0.23447518, z: 1.6513151}
+  m_Center: {x: -0.4687133, y: 0.14309645, z: 0.46029595}
 --- !u!1 &1307806803
 GameObject:
   m_ObjectHideFlags: 0
@@ -15378,8 +15378,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.6846396, y: 0.09394708, z: 0.68254304}
-  m_Center: {x: -0.043254007, y: 0.0469736, z: 0.34127146}
+  m_Size: {x: 0.74962956, y: 0.05057132, z: 0.6702535}
+  m_Center: {x: -0.010758956, y: 0.02528572, z: 0.34741628}
 --- !u!23 &1960186133
 MeshRenderer:
   m_ObjectHideFlags: 0
