@@ -51,9 +51,11 @@ public class CalculateScore : MonoBehaviour
     {
         if (!other.GetComponent<IngredientContainer>()) return;
 
-        audio.Play();
-
         var plate = other.GetComponent<IngredientContainer>();
+
+        if (plate.receivingTreatement == ReceipeTreatement.NONE) { return; }
+        
+        audio.Play();
 
         CustomerManager.instance.AddRecipeDone();
 
@@ -61,7 +63,6 @@ public class CalculateScore : MonoBehaviour
 
         lastPlate = plate.gameObject;
 
-        if (plate.receivingTreatement == ReceipeTreatement.NONE) { return; }
 
         score.SetScoreState(true); //Activate scorebar
 

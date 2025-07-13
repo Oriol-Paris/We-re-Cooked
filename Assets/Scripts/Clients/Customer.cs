@@ -22,8 +22,8 @@ public class Customer : MonoBehaviour
 
     void Awake()
     {
-        this.waitTime = 30;
-        this.maxWaitTime = 30;
+        this.waitTime = 90;
+        this.maxWaitTime = 90;
         this.isAngry = false;
         this.plateServed = false;
 
