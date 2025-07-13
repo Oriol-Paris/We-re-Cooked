@@ -6,9 +6,9 @@ using UnityEngine;
 
 public enum ReceipeTreatement {
     NONE,
-    HEAT,
+    HEAT/*,
     DRY,
-    FRY
+    FRY*/
 }
 
 [Serializable]

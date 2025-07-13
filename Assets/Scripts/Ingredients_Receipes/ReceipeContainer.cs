@@ -63,6 +63,9 @@ public class ReceipeContainer : MonoBehaviour {
         tmpT.transform.GetChild(0).GetComponent<UnityEngine.UI.Image>().sprite =
             ReceipeGenerator.instance.GetTreatSpriteByIndex((int)currentR.ingredientTreat);
 
+        tmpT.transform.GetChild(0).GetComponent<UnityEngine.UI.Image>().color =
+            new Color((float)252 / 255, (float)144 / 255, (float)3 / 255);
+
     }
 
     public void SetReceipe(Receipe r) {
