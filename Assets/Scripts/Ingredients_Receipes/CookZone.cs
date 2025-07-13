@@ -17,6 +17,7 @@ public class CookZone : MonoBehaviour {
 
     public ReceipeTreatement receipeTreatementResult;
 
+    public AudioSource audio;
 
     void Start() {
         canCook = true;
@@ -43,6 +44,8 @@ public class CookZone : MonoBehaviour {
     }
 
     IEnumerator CookProcess() {
+        if(audio !=null)
+            audio.Play();
         yield return new WaitForSeconds(cookTime);
 
         var tmp = Instantiate(cookedResult, cookedResultLaunchPosNDir.position, Quaternion.identity);

@@ -17,7 +17,8 @@ public class Customer : MonoBehaviour
 
     public Image patienceBar;
     public Animator client;
-
+    public AudioSource audio;
+    public AudioClip[] audioClips; //0 - mad, 1 - appear
 
     void Awake()
     {
@@ -27,6 +28,8 @@ public class Customer : MonoBehaviour
         this.plateServed = false;
 
         client.SetTrigger("NewClient");
+        audio.clip = audioClips[1];
+        audio.Play();
         patienceBar.fillAmount = 0;
         StartCoroutine(WaitToBeReady());
     }
@@ -40,10 +43,14 @@ public class Customer : MonoBehaviour
 
             UpdateBar();
 
-            if (waitTime <= 0)
+            if (waitTime <= 0 && !isAngry)
             {
+                isAngry = true;
                 waitTime = 0;
-                Gone();
+                audio.Stop();
+                audio.clip = audioClips[0];
+                audio.Play();
+                Gone(4);
             }
         }
         else
@@ -53,9 +60,9 @@ public class Customer : MonoBehaviour
         }
     }
 
-    IEnumerator WaitForDestroy()
+    IEnumerator WaitForDestroy(float time = 1f)
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(time);
         Destroy(this.gameObject);
     }
 
@@ -73,10 +80,10 @@ public class Customer : MonoBehaviour
     }
 
 
-    public void Gone()
+    public void Gone(float time = 1f)
     {
         client.SetTrigger("ClientLeft");
-        StartCoroutine(WaitForDestroy());
+        StartCoroutine(WaitForDestroy(time));
     }
 
     void UpdateBar()
