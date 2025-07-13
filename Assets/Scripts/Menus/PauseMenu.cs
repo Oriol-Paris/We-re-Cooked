@@ -121,6 +121,15 @@ public class PauseMenu : MonoBehaviour {
         }*/
         
         Time.timeScale = menuObj.activeSelf ? 0 : 1;
+
+        if (menuObj.activeSelf) {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
     }
 
     public void OpenOptions(bool open)

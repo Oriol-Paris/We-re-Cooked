@@ -9,6 +9,9 @@ public class FinalScene : MonoBehaviour
     void Start()
     {
         ShowOrdersCompleted(SavedContent.instance.GetRecipiesAmount());
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     void ShowOrdersCompleted(int num)
