@@ -18,6 +18,7 @@ public class Customer : MonoBehaviour
     public Image patienceBar;
     public Animator client;
     public AudioSource audio;
+    public AudioClip[] audioClips; //0 - mad, 1 - appear
 
     void Awake()
     {
@@ -27,6 +28,7 @@ public class Customer : MonoBehaviour
         this.plateServed = false;
 
         client.SetTrigger("NewClient");
+        audio.clip = audioClips[1];
         audio.Play();
         patienceBar.fillAmount = 0;
         StartCoroutine(WaitToBeReady());
@@ -44,6 +46,9 @@ public class Customer : MonoBehaviour
             if (waitTime <= 0)
             {
                 waitTime = 0;
+                audio.Stop();
+                audio.clip = audioClips[0];
+                audio.Play();
                 Gone();
             }
         }

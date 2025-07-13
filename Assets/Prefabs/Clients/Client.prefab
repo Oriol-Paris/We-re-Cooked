@@ -576,3 +576,6 @@ MonoBehaviour:
   patienceBar: {fileID: 82881385274791002}
   client: {fileID: 7450384986827236057}
   audio: {fileID: 492107929730777972}
+  audioClips:
+  - {fileID: 8300000, guid: d433912e1df38b4458b363f0596682ec, type: 3}
+  - {fileID: 8300000, guid: 4e5f523e34198db4d896374125e94cee, type: 3}

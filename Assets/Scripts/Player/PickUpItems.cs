@@ -43,7 +43,7 @@ public class ObjectGrabber : MonoBehaviour
         }
 
         objGrabbed = grabbedRb != null;
-        if(objGrabbed)
+        if(!objGrabbed)
             audio.Play();
     }
 
